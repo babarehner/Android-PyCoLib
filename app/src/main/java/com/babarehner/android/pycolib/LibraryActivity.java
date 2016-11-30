@@ -1,13 +1,16 @@
 package com.babarehner.android.pycolib;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class LibraryActivity extends AppCompatActivity {
 
@@ -21,6 +24,16 @@ public class LibraryActivity extends AppCompatActivity {
         SpannableString s = new SpannableString(title);
         s.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getSupportActionBar().setTitle(s);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LibraryActivity.this, EditActivity.class);
+                startActivity(intent);
+            }
+        }) ;
     }
 
     // Create an  options menu

@@ -7,4 +7,7 @@
     <color name="color_blue_python">#007ACC</color>
     <color name="color_gold_python">#FFD633</color>
 
+    <color name="editColorPrimary">#2D3640</color>
+    <color name="editColorPrimaryDark">#394450</color>
+
 </resources>
