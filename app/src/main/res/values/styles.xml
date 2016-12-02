@@ -7,7 +7,7 @@
     </style>
 
     <!-- Theme of the editor -->
-    <style name="EditTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="BookTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/editColorPrimary</item>
         <item name="colorPrimaryDark">@color/editColorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -25,7 +25,7 @@
     </style>
 
     <!-- Style for an EditText field in the editor -->
-    <style name="EditorFieldStyle">
+    <style name="BookFieldStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:fontFamily">sans-serif-light</item>

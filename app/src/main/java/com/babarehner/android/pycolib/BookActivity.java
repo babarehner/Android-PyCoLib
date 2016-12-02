@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class EditActivity extends AppCompatActivity {
+public class BookActivity extends AppCompatActivity {
 
     private EditText mTitleEditText;
     private EditText mAuthorEditText;
@@ -20,7 +20,7 @@ public class EditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit);
+        setContentView(R.layout.activity_book);
 
         mTitleEditText = (EditText) findViewById(R.id.edit_title);
         mAuthorEditText = (EditText) findViewById(R.id.edit_author);

@@ -30,7 +30,7 @@ public class LibraryActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LibraryActivity.this, EditActivity.class);
+                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
                 startActivity(intent);
             }
         }) ;

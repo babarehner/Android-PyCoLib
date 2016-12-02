@@ -15,8 +15,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditActivity"
-            android:theme="@style/EditTheme"
+            android:name=".BookActivity"
+            android:theme="@style/BookTheme"
             android:parentActivityName=".LibraryActivity">
             <!-- Parent activity metaadata to support Android 4.0 and lower -->
             <meta-data

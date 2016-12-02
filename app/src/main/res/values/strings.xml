@@ -12,5 +12,7 @@
     <string name="action_save">Save</string>
     <string name="action_delete">Delete Book</string>
     <string name="category_publish_year">Year Published</string>
+    <string name="book_borrower">Borrower</string>
+    <string name="hint_borrower_name">Name</string>
 
 </resources>
