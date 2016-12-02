@@ -22,16 +22,17 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    // SQL statement to create the Tbooks table
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // SQL statement to create the Tbooks table
         String SQL_CREATE_BOOKS_TABLE = "CREATE TABLE " + LibraryEntry.TBOOKS
+                + "("
                 + LibraryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + LibraryEntry.COL_ISBN + " TEXT, "
                 + LibraryEntry.Col_TITLE + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_AUTHOR + " TEXT, "
                 + LibraryEntry.COL_YEAR_PUBLISHED + " INTEGER, "
-                + LibraryEntry.COL_CHECKED_OUT + " BOOLEAN;";
+                + LibraryEntry.COL_BORROWER + " TEXT);";
+                // + LibraryEntry.COL_CHECKED_OUT + " BOOLEAN;";
 
         db.execSQL(SQL_CREATE_BOOKS_TABLE);
     }

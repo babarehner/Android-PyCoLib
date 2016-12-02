@@ -14,24 +14,26 @@ public final class LibraryContract {
 
     /**
      * Inner class that defines constant values for the library database table.
-     * Each entry in the table represents a single book.
+     * Defines Table name and column names.
      */
     public static final class LibraryEntry implements BaseColumns {
 
-        // Table books
-        public final static String TBOOKS = "books";
+        // Create Table books
+        public final static String TBOOKS = "TBooks";
 
         // Primary key to be autoincremented. I believe this is a
         // required name for some Android APIs
-        public final static String _ID = BaseColumns._ID;
-        public final static String COL_ISBN ="ISBN";
-        public final static String Col_TITLE= "Title";
+        // Names for columns on TBooks table
+        public static final String _ID = BaseColumns._ID;
+        public static final String Col_TITLE= "Title";
         public static final String COL_AUTHOR= "Author";
         public static final String COL_YEAR_PUBLISHED = "YearPublished";
-        public static boolean COL_CHECKED_OUT = false;
+        public static final String COL_BORROWER = "Borrower";
+        // not currently used- should be a boolean
+        //public static final String COL_CHECKED_OUT = "CheckedOut";
 
-        public static final int LOWEST_YEAR = 1991;
-        public static final int HIGHEST_YEAR = 2020;
+        public static final int LOWEST_YEAR = 1991;     // When Python was born
+        public static final int HIGHEST_YEAR = 2017;    // Current year + 1
 
     }
 }

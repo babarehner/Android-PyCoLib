@@ -1,6 +1,8 @@
 package com.babarehner.android.pycolib;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,11 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.babarehner.android.pycolib.data.LibraryContract;
+import com.babarehner.android.pycolib.data.LibraryDbHelper;
+
+
 public class LibraryActivity extends AppCompatActivity {
+
+
+    private LibraryDbHelper mDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,10 @@ public class LibraryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }) ;
+
+        // Create an instance of Androids db helper cwhich creates
+        // a SQLLite db extended in data/LibraryDbHelper
+        mDbHelper = new LibraryDbHelper(this);
     }
 
     // Create an  options menu
@@ -48,7 +62,7 @@ public class LibraryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_insert_test_data:
-                // insertBook;
+                insertTestDataBook();
                 // displayData:
                 return true;
             case R.id.action_delete_all_data:
@@ -57,4 +71,27 @@ public class LibraryActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    // inserts a row of test data into SQL table db
+    private void insertTestDataBook() {
+        //Create or open a database to write to it
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(LibraryContract.LibraryEntry.Col_TITLE, "Python Cookbook 2nd Edition");
+        values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
+        values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
+        values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
+        long newRowId = db.insert(LibraryContract.LibraryEntry.TBOOKS, null, values);
+
+        Log.v("LibraryActivity", "New Rows ID "+ newRowId);
+    }
+
+    // Display db TBooks table for testing purposes.
+    private void displayDBTbooks(){
+        // Create or open a database to read from it
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+    }
+
 }
