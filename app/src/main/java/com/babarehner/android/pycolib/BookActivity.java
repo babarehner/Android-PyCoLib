@@ -1,7 +1,9 @@
 package com.babarehner.android.pycolib;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,12 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.babarehner.android.pycolib.data.LibraryDbHelper;
+
 public class BookActivity extends AppCompatActivity {
 
     private EditText mTitleEditText;
     private EditText mAuthorEditText;
     private Spinner mPublishYearSpinner;
     private int mPublishYear = 2016;
+    private EditText mBorrowerEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class BookActivity extends AppCompatActivity {
         mAuthorEditText = (EditText) findViewById(R.id.edit_author);
         mPublishYearSpinner = (Spinner) findViewById(R.id.spinner_publish_year);
         setUpSpinner();
+        mBorrowerEditText = (EditText) findViewById(R.id.edit_borrower);
     }
 
     private void setUpSpinner() {
@@ -43,6 +49,8 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 String selection = (String) parent.getItemAtPosition(position);
+                Log.v("BookActivity ",  selection);
+                mPublishYear = Integer.parseInt(selection);
             }
             // Because AdapterView is an abstract classe, onNothingSelected must be defined
             @Override
@@ -66,12 +74,18 @@ public class BookActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                // save book in db
+                insertBook();
+                finish();
                 return true;
             case R.id.action_delete_all_data:
                 // delete book in db
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void insertBook(){
+        LibraryDbHelper mDbHelper = new LibraryDbHelper(this);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
     }
 }

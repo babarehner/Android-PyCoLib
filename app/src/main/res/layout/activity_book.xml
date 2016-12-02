@@ -105,7 +105,7 @@
 
             <!-- Borrower input field -->
             <EditText
-                android:id="@+id/book_borrower_name"
+                android:id="@+id/edit_borrower"
                 android:hint="@string/hint_borrower_name"
                 style="@style/BookFieldStyle" />
         </RelativeLayout>
