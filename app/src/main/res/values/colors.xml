@@ -10,4 +10,6 @@
     <color name="editColorPrimary">#2D3640</color>
     <color name="editColorPrimaryDark">#394450</color>
 
+    <color name="editColorText">#003366</color>
+
 </resources>

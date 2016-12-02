@@ -4,11 +4,13 @@
     <string name="action_delete_all_data">Delete All Data</string>
 
     <!-- Basic or minimum info to be shown in the list view -->
-    <string name="category_basics">Basic Info</string>
+    <string name="category_basics">Book Info</string>
 
     <string name="hint_title">Book Title</string>
 
     <string name="hint_author">Author</string>
     <string name="action_save">Save</string>
     <string name="action_delete">Delete Book</string>
+    <string name="category_publish_year">Year Published</string>
+
 </resources>
