@@ -56,7 +56,7 @@ public class LibraryActivity extends AppCompatActivity {
 
         // Create an instance of Android's dbHelper which abstracts from SQLite
         mDbHelper = new LibraryDbHelper(this);
-        displayDBTbooks();
+        displayDBTBooks();
     }
 
     // Create an  options menu
@@ -72,12 +72,12 @@ public class LibraryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_insert_test_data:
                 insertTestDataBook();
-                displayDBTbooks();
+                displayDBTBooks();
                 finish();
                 return true;
             case R.id.action_delete_all_data:
                 deleteAll();
-                displayDBTbooks();
+                displayDBTBooks();
                 finish();
                 return true;
         }
@@ -100,7 +100,7 @@ public class LibraryActivity extends AppCompatActivity {
     }
 
     // Display db TBooks table for testing purposes.
-    private void displayDBTbooks(){
+    private void displayDBTBooks(){
         // Create or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
