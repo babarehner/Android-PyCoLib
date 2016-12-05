@@ -73,12 +73,10 @@ public class LibraryActivity extends AppCompatActivity {
             case R.id.action_insert_test_data:
                 insertTestDataBook();
                 displayDBTBooks();
-                finish();
                 return true;
             case R.id.action_delete_all_data:
                 deleteAll();
                 displayDBTBooks();
-                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);

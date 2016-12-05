@@ -107,6 +107,7 @@
             <EditText
                 android:id="@+id/edit_borrower"
                 android:hint="@string/hint_borrower_name"
+                android:inputType="textCapWords"
                 style="@style/BookFieldStyle" />
         </RelativeLayout>
 

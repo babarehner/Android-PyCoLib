@@ -1,5 +1,6 @@
 package com.babarehner.android.pycolib;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.babarehner.android.pycolib.data.LibraryContract;
 import com.babarehner.android.pycolib.data.LibraryDbHelper;
+
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
 
 public class BookActivity extends AppCompatActivity {
 
@@ -87,5 +91,29 @@ public class BookActivity extends AppCompatActivity {
     private void insertBook(){
         LibraryDbHelper mDbHelper = new LibraryDbHelper(this);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        // read from EditText input fields
+        String titleString = mTitleEditText.getText().toString().trim();
+        String authorString = mAuthorEditText.getText().toString().trim();
+        String publishDateString = Integer.toString(mPublishYear);
+        String borrowerString = mBorrowerEditText.getText().toString().trim();
+
+        ContentValues values = new ContentValues();
+        values.put(LibraryContract.LibraryEntry.Col_TITLE, titleString);
+        values.put(LibraryContract.LibraryEntry.COL_AUTHOR, authorString);
+        values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, publishDateString);
+        values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
+
+        long newRowId = db.insert(TBOOKS, null, values);
+
     }
+
 }
+
+
+
+
+
+
+
+
