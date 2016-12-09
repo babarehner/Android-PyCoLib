@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,9 +21,8 @@ import com.babarehner.android.pycolib.data.LibraryDbHelper;
 
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_AUTHOR;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_BORROWER;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._ID;
 
 
@@ -55,7 +53,7 @@ public class LibraryActivity extends AppCompatActivity {
         }) ;
 
         // Create an instance of Android's dbHelper which abstracts from SQLite
-        mDbHelper = new LibraryDbHelper(this);
+        //mDbHelper = new LibraryDbHelper(this);
         displayDBTBooks();
     }
 
@@ -84,23 +82,23 @@ public class LibraryActivity extends AppCompatActivity {
 
     // inserts a row of test data into SQL table db
     private void insertTestDataBook() {
-        //Create or open a database to write to it
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(LibraryContract.LibraryEntry.COL_TITLE, "Python Cookbook 2nd Edition");
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
-        long newRowId = db.insert(TBOOKS, null, values);
+        //long newRowId = db.insert(TBOOKS, null, values);
 
-        Log.v("LibraryActivity", "New Rows ID "+ newRowId);
+        //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
     }
 
     // Display db TBooks table for testing purposes.
     private void displayDBTBooks(){
         // Create or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        //SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         String[] projection = {LibraryContract.LibraryEntry._ID,
                 LibraryContract.LibraryEntry.COL_TITLE,
@@ -109,7 +107,8 @@ public class LibraryActivity extends AppCompatActivity {
                 LibraryContract.LibraryEntry.COL_BORROWER
         };
 
-        Cursor c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, null, null, null, null, null);
+        //Cursor c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, null, null, null, null, null);
+        Cursor c = getContentResolver().query(LibraryContract.LibraryEntry.CONTENT_URI, projection, null, null, null);
 
         TextView displayView = (TextView) findViewById(R.id.text_view_library);
 
@@ -148,9 +147,9 @@ public class LibraryActivity extends AppCompatActivity {
 
     private void deleteAll() {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        int deleteRowCount = db.delete(TBOOKS, null, null);
+        //int deleteRowCount = db.delete(TBOOKS, null, null);
 
-        Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
+        //Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }
 
 }

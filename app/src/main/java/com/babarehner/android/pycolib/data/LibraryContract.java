@@ -27,12 +27,12 @@ public final class LibraryContract {
      */
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_TBOOKS = "TBooks";
+    public static final String PATH_TBOOKS = "Books";
     public static final String PATH_TBORROWERS = "TBorrowers";
     public static final String PATH_TOANS ="TLoaned";
 
     // The MIME Type for a list of books
-    public static final String CONTENT_BOOK_LIST_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
+    public static final String CONTENT_LIST_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE + "/"
             + CONTENT_AUTHORITY +"/" + PATH_TBOOKS;
     // The MIME Type fo a single book
     public static final String CONTENT_BOOK_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"
@@ -48,8 +48,12 @@ public final class LibraryContract {
      */
     public static final class LibraryEntry implements BaseColumns {
 
-        // Create Table books
+        //The content uri to access the library data in the provider
+        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TBOOKS);
+
+        // Name of db table for books
         public final static String TBOOKS = "TBooks";
+
 
         // Primary key to be autoincremented. I believe this is a
         // required name for some Android APIs

@@ -1,9 +1,11 @@
 package com.babarehner.android.pycolib.data;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
 import static com.babarehner.android.pycolib.data.LibraryContract.PATH_TBOOKS;
@@ -25,23 +27,49 @@ public class LibraryProvider extends ContentProvider {
     private static final int LOANED = 300;
     private static final int LOANED_ID = 301;
 
+    private LibraryDbHelper mDbHelper;
+
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static{
         sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TBOOKS, BOOKS);
-        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TBOOKS + "/", BOOK_ID);
+        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TBOOKS + "/#", BOOK_ID);
     }
 
 
     @Override
     public boolean onCreate() {
-
+        // why is this line need- I know it initialized mDbHelper
+        mDbHelper = new LibraryDbHelper(getContext());
         return true;
     }
 
     @Override
     public Cursor query(Uri uri, String[]projection, String selection, String[] selectionArgs,
                         String sortOrder) {
-        return null;
+
+
+
+        //Create or open a database to write to it
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        Cursor c;
+
+        int match = sUriMatcher.match(uri);
+        switch (match){
+            case BOOKS:
+                c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, selection,
+                        selectionArgs, null, null, sortOrder);
+                break;
+            case BOOK_ID:
+                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, selection,
+                        selectionArgs, null, null, sortOrder);
+                break;
+            default:
+                throw new IllegalArgumentException("Cannnot query unknonw URI: " + uri);
+        }
+        return c;
     }
 
     @Override
