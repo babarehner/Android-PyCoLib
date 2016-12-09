@@ -99,7 +99,7 @@ public class BookActivity extends AppCompatActivity {
         String borrowerString = mBorrowerEditText.getText().toString().trim();
 
         ContentValues values = new ContentValues();
-        values.put(LibraryContract.LibraryEntry.Col_TITLE, titleString);
+        values.put(LibraryContract.LibraryEntry.COL_TITLE, titleString);
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, authorString);
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, publishDateString);
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);

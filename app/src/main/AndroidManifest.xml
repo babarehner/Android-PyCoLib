@@ -23,5 +23,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LibraryActivity" />
         </activity>
+        <provider
+            android:name=".data.LibraryProvider"
+            android:authorities="com.babarehner.android.pycolib"
+            android:exported="false" />
     </application>
 </manifest>

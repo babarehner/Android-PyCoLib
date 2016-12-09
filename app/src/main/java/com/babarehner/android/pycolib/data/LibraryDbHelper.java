@@ -28,13 +28,31 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_BOOKS_TABLE = "CREATE TABLE " + LibraryEntry.TBOOKS
                 + "("
                 + LibraryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + LibraryEntry.Col_TITLE + " TEXT_NOT_NULL, "
+                + LibraryEntry.COL_TITLE + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_AUTHOR + " TEXT, "
                 + LibraryEntry.COL_YEAR_PUBLISHED + " INTEGER, "
                 + LibraryEntry.COL_BORROWER + " TEXT);";
                 // + LibraryEntry.COL_CHECKED_OUT + " BOOLEAN;";
 
+        String SQL_CREATE_BORROWERS_TABLE = "CREATE TABLE " + LibraryEntry.TBORROWERS
+                + "("
+                + LibraryEntry._IDB + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LibraryEntry.COL_NAME + " TEXT_NOT_NULL, "
+                + LibraryEntry.COL_PHONE + " TEXT, "
+                + LibraryEntry.COL_EMAIL + " TEXT);" ;
+
+        String SQL_CREATE_LOAN_TABLE = "CREATE TABLE " + LibraryEntry.TLOANED
+                + "("
+                + LibraryEntry._IDL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LibraryEntry.COL_TITLE_ID + " LONG NOT NULL, "
+                + LibraryEntry.COL_NAME_ID + " LONG NOT NULL, "
+                + LibraryEntry.COL_LOAN_DATE + " DATE NOT NULL, "
+                + LibraryEntry.COL_RETURN_DATE + " DATE);";
+
+
         db.execSQL(SQL_CREATE_BOOKS_TABLE);
+        db.execSQL(SQL_CREATE_BORROWERS_TABLE);
+        db.execSQL(SQL_CREATE_LOAN_TABLE);
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){

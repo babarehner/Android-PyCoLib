@@ -23,7 +23,7 @@ import com.babarehner.android.pycolib.data.LibraryDbHelper;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_AUTHOR;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_BORROWER;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.Col_TITLE;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._ID;
 
@@ -88,7 +88,7 @@ public class LibraryActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(LibraryContract.LibraryEntry.Col_TITLE, "Python Cookbook 2nd Edition");
+        values.put(LibraryContract.LibraryEntry.COL_TITLE, "Python Cookbook 2nd Edition");
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
@@ -103,7 +103,7 @@ public class LibraryActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         String[] projection = {LibraryContract.LibraryEntry._ID,
-                LibraryContract.LibraryEntry.Col_TITLE,
+                LibraryContract.LibraryEntry.COL_TITLE,
                 LibraryContract.LibraryEntry.COL_AUTHOR,
                 LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED,
                 LibraryContract.LibraryEntry.COL_BORROWER
@@ -116,13 +116,13 @@ public class LibraryActivity extends AppCompatActivity {
         try {
             displayView.setText(" Number of rows in Books table: " + c.getCount() + " books. \n\n");
             displayView.append(LibraryContract.LibraryEntry._ID + " - " +
-                            LibraryContract.LibraryEntry.Col_TITLE + " - " +
+                            LibraryContract.LibraryEntry.COL_TITLE + " - " +
                             LibraryContract.LibraryEntry.COL_AUTHOR + " - " +
                             LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED + " - " +
                             LibraryContract.LibraryEntry.COL_BORROWER + "\n\n");
 
             int idColIndex = c.getColumnIndex(_ID);
-            int titleColIndex = c.getColumnIndex(Col_TITLE);
+            int titleColIndex = c.getColumnIndex(COL_TITLE);
             int authorColIndex = c.getColumnIndex(COL_AUTHOR);
             int publishYearColIndex = c.getColumnIndex(COL_YEAR_PUBLISHED);
             int borrowerColIndex = c.getColumnIndex(COL_BORROWER);
