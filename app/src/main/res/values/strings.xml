@@ -15,4 +15,8 @@
     <string name="book_borrower">Borrower</string>
     <string name="hint_borrower_name">Name</string>
 
+    <!-- Toast messages in LibraryProvider->insertBook [CHAR LIMIT=NONE] -->
+    <string name="library_provider_insert_book_good">Book saved</string>
+    <string name="library_provider_insert_book_failed">Book save error</string>
+
 </resources>

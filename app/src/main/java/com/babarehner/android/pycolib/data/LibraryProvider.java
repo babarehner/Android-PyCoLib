@@ -7,9 +7,10 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.util.Log;
 
-import static com.babarehner.android.pycolib.data.LibraryContract.PATH_TBOOKS;
 import static com.babarehner.android.pycolib.data.LibraryContract.CONTENT_AUTHORITY;
+import static com.babarehner.android.pycolib.data.LibraryContract.PATH_TBOOKS;
 
 
 /**
@@ -47,8 +48,6 @@ public class LibraryProvider extends ContentProvider {
     public Cursor query(Uri uri, String[]projection, String selection, String[] selectionArgs,
                         String sortOrder) {
 
-
-
         //Create or open a database to write to it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -74,21 +73,111 @@ public class LibraryProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        return uri;
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case BOOKS:
+                return insertBook(uri, values);
+            default:
+                throw new IllegalArgumentException("Insertion is not supported for " + uri);
+        }
     }
+
+     //Insert a book into the books table with the given content values. Return the new conntent URI
+     //for that specific row inthe  database
+    private Uri insertBook(Uri uri, ContentValues values){
+        // Check that the  name is not null
+        String name = values.getAsString(LibraryContract.LibraryEntry.COL_TITLE);
+        if (name == null){
+            throw new IllegalArgumentException("Title required to insert book!");
+        }
+
+        //TODO in insertBook check data before entering in db
+        String author = values.getAsString(LibraryContract.LibraryEntry.COL_AUTHOR);
+        Integer pubYear = values.getAsInteger(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED);
+        String borrowr = values.getAsString(LibraryContract.LibraryEntry.COL_BORROWER);
+
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        // insert a book into the TBooks Table
+        long id = db.insert(LibraryContract.LibraryEntry.TBOOKS, null, values);
+        Log.v(LOG_TAG, "Book not entered " + values);
+        if (id == -1){          // if the insertion failed
+            Log.e(LOG_TAG, "Failed to insert row for " + uri);
+            return null;
+        }
+
+        // Notify all listeners that the data has changed for the books content URI
+        getContext().getContentResolver().notifyChange(uri, null);
+
+        // Return the new URI with the ID (of the newly inserted row) appended at the end
+        return ContentUris.withAppendedId(uri,id);
+    }
+
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return 0;
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case BOOKS:
+                return updateBook(uri, values, selection, selectionArgs);
+            case BOOK_ID:
+                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri))};
+                return updateBook(uri, values, selection, selectionArgs);
+            default:
+                throw new IllegalArgumentException("Update is not supported for: " + uri);
+        }
+    }
+
+    private int updateBook(Uri uri, ContentValues values, String selection, String[] selectionArgs){
+
+        // if there are no values to update, quit!
+        if (values.size() == 0){return 0;}
+
+        // check that the Title value is not empty
+        if (values.containsKey(LibraryContract.LibraryEntry.COL_TITLE)){
+            String title = values.getAsString(LibraryContract.LibraryEntry.COL_TITLE);
+            // Not entirelly sure that it will get to this if statement if the title column is empty
+            if (title == null) {
+                throw new IllegalArgumentException("Book requires a title");
+            }
+        }
+
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        // returns the # of db rows affected by theupdate statement
+        return db.update(LibraryContract.LibraryEntry.TBOOKS, values, selection, selectionArgs);
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        return 0;
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        final int match = sUriMatcher.match(uri);
+        switch(match){
+            case BOOKS:
+                // Delete all rows that match the selection and selection args
+                return db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+            case BOOK_ID:
+                // Delete a single row fiven by the ID in the URI
+                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+            default:
+                throw new IllegalArgumentException("Deletion is not supported for: " + uri);
+        }
     }
 
     @Override
     public String getType(Uri uri){
-        return null;
+
+        final int match = sUriMatcher.match(uri);
+        switch (match){
+            case BOOKS:
+                return LibraryContract.LibraryEntry.CONTENT_LIST_TYPE;
+            case BOOK_ID:
+                return LibraryContract.LibraryEntry.CONENTENT_ITEM_TYPE;
+            default:
+                throw new IllegalStateException("Unkown UrI: " + uri + "with match: " + match);
+        }
     }
 }

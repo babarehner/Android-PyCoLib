@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.C
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_BORROWER;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._ID;
 
 
@@ -83,8 +85,6 @@ public class LibraryActivity extends AppCompatActivity {
     // inserts a row of test data into SQL table db
     private void insertTestDataBook() {
 
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
         ContentValues values = new ContentValues();
         values.put(LibraryContract.LibraryEntry.COL_TITLE, "Python Cookbook 2nd Edition");
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
@@ -93,6 +93,8 @@ public class LibraryActivity extends AppCompatActivity {
         //long newRowId = db.insert(TBOOKS, null, values);
 
         //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
+
+        Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
     }
 
     // Display db TBooks table for testing purposes.
@@ -147,7 +149,7 @@ public class LibraryActivity extends AppCompatActivity {
 
     private void deleteAll() {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        //int deleteRowCount = db.delete(TBOOKS, null, null);
+        int deleteRowCount = db.delete(TBOOKS, null, null);
 
         //Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }

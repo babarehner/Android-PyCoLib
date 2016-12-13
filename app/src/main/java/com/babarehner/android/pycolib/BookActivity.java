@@ -1,7 +1,7 @@
 package com.babarehner.android.pycolib;
 
 import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,11 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
-import com.babarehner.android.pycolib.data.LibraryDbHelper;
-
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
 
 public class BookActivity extends AppCompatActivity {
 
@@ -25,6 +23,8 @@ public class BookActivity extends AppCompatActivity {
     private Spinner mPublishYearSpinner;
     private int mPublishYear = 2016;
     private EditText mBorrowerEditText;
+
+    private Uri mCurrentLibraryUri = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +89,6 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void insertBook(){
-        LibraryDbHelper mDbHelper = new LibraryDbHelper(this);
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         // read from EditText input fields
         String titleString = mTitleEditText.getText().toString().trim();
@@ -104,8 +102,20 @@ public class BookActivity extends AppCompatActivity {
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, publishDateString);
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
 
-        long newRowId = db.insert(TBOOKS, null, values);
+        Uri newUri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
+        if (newUri == null) {
+            Toast.makeText(this, getString(R.string.library_provider_insert_book_failed),
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, getString(R.string.library_provider_insert_book_good),
+                    Toast.LENGTH_SHORT).show();
+        }
 
+        if (mCurrentLibraryUri == null) {
+            // This is a NEW pet, so insert a new pet into the  provider,
+            // returning the content URI for the new pet.
+            newUri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
+        }
     }
 
 }
