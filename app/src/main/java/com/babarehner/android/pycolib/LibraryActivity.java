@@ -15,17 +15,12 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 import com.babarehner.android.pycolib.data.LibraryDbHelper;
 
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_AUTHOR;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_BORROWER;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._ID;
 
 
 public class LibraryActivity extends AppCompatActivity {
@@ -54,8 +49,16 @@ public class LibraryActivity extends AppCompatActivity {
             }
         }) ;
 
-        // Create an instance of Android's dbHelper which abstracts from SQLite
-        //mDbHelper = new LibraryDbHelper(this);
+        ListView libraryListView = (ListView) findViewById(R.id.list);
+        // have the libraryListView display  the empty view
+        View emptyView = findViewById(R.id.empty_view);
+        libraryListView.setEmptyView(emptyView);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         displayDBTBooks();
     }
 
@@ -112,39 +115,12 @@ public class LibraryActivity extends AppCompatActivity {
         //Cursor c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, null, null, null, null, null);
         Cursor c = getContentResolver().query(LibraryContract.LibraryEntry.CONTENT_URI, projection, null, null, null);
 
-        TextView displayView = (TextView) findViewById(R.id.text_view_library);
+        // Set up the adapter and display the listview
+        ListView booksListView = (ListView) findViewById(R.id.list);
+        LibraryCursorAdapter adapter = new LibraryCursorAdapter(this, c);
+        booksListView.setAdapter(adapter);
 
-        try {
-            displayView.setText(" Number of rows in Books table: " + c.getCount() + " books. \n\n");
-            displayView.append(LibraryContract.LibraryEntry._ID + " - " +
-                            LibraryContract.LibraryEntry.COL_TITLE + " - " +
-                            LibraryContract.LibraryEntry.COL_AUTHOR + " - " +
-                            LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED + " - " +
-                            LibraryContract.LibraryEntry.COL_BORROWER + "\n\n");
-
-            int idColIndex = c.getColumnIndex(_ID);
-            int titleColIndex = c.getColumnIndex(COL_TITLE);
-            int authorColIndex = c.getColumnIndex(COL_AUTHOR);
-            int publishYearColIndex = c.getColumnIndex(COL_YEAR_PUBLISHED);
-            int borrowerColIndex = c.getColumnIndex(COL_BORROWER);
-
-            while (c.moveToNext()){
-                int currentID = c.getInt(idColIndex);
-                String currentTitle = c.getString(titleColIndex);
-                String currentAuthor = c.getString(authorColIndex);
-                int currentPublishYear = c.getInt(publishYearColIndex);
-                String currentBorrower = c.getString(borrowerColIndex);
-
-                displayView.append(currentID + " - " +
-                        currentTitle + " - " +
-                        currentAuthor + " - " +
-                        currentPublishYear + " - " +
-                        currentBorrower + "\n\n");
-            }
-
-        } finally {
-            c.close();
-        }
+        //c.close();   adapter appears to take care of this closing
     }
 
     private void deleteAll() {
