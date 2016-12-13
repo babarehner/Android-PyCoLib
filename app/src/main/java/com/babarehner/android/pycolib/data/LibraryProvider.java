@@ -68,6 +68,11 @@ public class LibraryProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Cannnot query unknonw URI: " + uri);
         }
+
+        // Notify if the data at this URI changes. Then we need to update cursor
+        // Listener attached is automatically notified with uri
+        c.setNotificationUri(getContext().getContentResolver(), uri);
+
         return c;
     }
 
@@ -94,7 +99,7 @@ public class LibraryProvider extends ContentProvider {
         //TODO in insertBook check data before entering in db
         String author = values.getAsString(LibraryContract.LibraryEntry.COL_AUTHOR);
         Integer pubYear = values.getAsInteger(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED);
-        String borrowr = values.getAsString(LibraryContract.LibraryEntry.COL_BORROWER);
+        String borrower = values.getAsString(LibraryContract.LibraryEntry.COL_BORROWER);
 
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         // insert a book into the TBooks Table
@@ -144,27 +149,42 @@ public class LibraryProvider extends ContentProvider {
 
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
+        int rowsUpdated = db.update(LibraryContract.LibraryEntry.TBOOKS, values, selection, selectionArgs);
+        if (rowsUpdated != 0){
+            // Notify all listeners that the data has changed
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
         // returns the # of db rows affected by theupdate statement
-        return db.update(LibraryContract.LibraryEntry.TBOOKS, values, selection, selectionArgs);
+        return rowsUpdated;
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
+        int rowsDeleted;
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
         final int match = sUriMatcher.match(uri);
         switch(match){
             case BOOKS:
                 // Delete all rows that match the selection and selection args
-                return db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+                rowsDeleted = db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+                break;
             case BOOK_ID:
                 // Delete a single row fiven by the ID in the URI
                 selection = LibraryContract.LibraryEntry._ID + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
-                return db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+                rowsDeleted = db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+                break;
             default:
                 throw new IllegalArgumentException("Deletion is not supported for: " + uri);
         }
+
+        if (rowsDeleted != 0){
+            // Notify all listeners that the date at the given Uri has changed
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        return rowsDeleted;
     }
 
     @Override

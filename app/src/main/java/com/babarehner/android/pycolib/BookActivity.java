@@ -110,12 +110,13 @@ public class BookActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.library_provider_insert_book_good),
                     Toast.LENGTH_SHORT).show();
         }
-
+        /*
         if (mCurrentLibraryUri == null) {
             // This is a NEW pet, so insert a new pet into the  provider,
             // returning the content URI for the new pet.
             newUri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
-        }
+
+        }*/
     }
 
 }

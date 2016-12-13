@@ -24,8 +24,10 @@ import com.babarehner.android.pycolib.data.LibraryContract;
 
 public class LibraryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    // identifier for loader to run on separate thread
     private static final int BOOK_LOADER = 0;
     LibraryCursorAdapter mCursorAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
