@@ -1,9 +1,11 @@
 package com.babarehner.android.pycolib;
 
+import android.app.LoaderManager;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,16 +20,12 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
-import com.babarehner.android.pycolib.data.LibraryDbHelper;
-
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
 
 
-public class LibraryActivity extends AppCompatActivity {
+public class LibraryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
-
-    private LibraryDbHelper mDbHelper;
-
+    private static final int BOOK_LOADER = 0;
+    LibraryCursorAdapter mCursorAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,14 +51,16 @@ public class LibraryActivity extends AppCompatActivity {
         // have the libraryListView display  the empty view
         View emptyView = findViewById(R.id.empty_view);
         libraryListView.setEmptyView(emptyView);
+
+        // set up an adapter to create a list for each row of Book data
+        // There is no data now (data won't show up unit loader finishes) so null for Cursor
+        mCursorAdapter = new LibraryCursorAdapter(this, null);
+        libraryListView.setAdapter(mCursorAdapter);
+
+        // Fire up the loader
+        getLoaderManager().initLoader(BOOK_LOADER, null, this);
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        displayDBTBooks();
-    }
 
     // Create an  options menu
     @Override
@@ -75,11 +75,9 @@ public class LibraryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_insert_test_data:
                 insertTestDataBook();
-                displayDBTBooks();
                 return true;
             case R.id.action_delete_all_data:
                 deleteAll();
-                displayDBTBooks();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -100,34 +98,41 @@ public class LibraryActivity extends AppCompatActivity {
         Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
     }
 
-    // Display db TBooks table for testing purposes.
-    private void displayDBTBooks(){
-        // Create or open a database to read from it
-        //SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
-        String[] projection = {LibraryContract.LibraryEntry._ID,
-                LibraryContract.LibraryEntry.COL_TITLE,
-                LibraryContract.LibraryEntry.COL_AUTHOR,
-                LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED,
-                LibraryContract.LibraryEntry.COL_BORROWER
-        };
-
-        //Cursor c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, null, null, null, null, null);
-        Cursor c = getContentResolver().query(LibraryContract.LibraryEntry.CONTENT_URI, projection, null, null, null);
-
-        // Set up the adapter and display the listview
-        ListView booksListView = (ListView) findViewById(R.id.list);
-        LibraryCursorAdapter adapter = new LibraryCursorAdapter(this, c);
-        booksListView.setAdapter(adapter);
-
-        //c.close();   adapter appears to take care of this closing
-    }
 
     private void deleteAll() {
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        int deleteRowCount = db.delete(TBOOKS, null, null);
+        //SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        //int deleteRowCount = db.delete(TBOOKS, null, null);
 
         //Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }
 
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+        // Define a projections with the columns we are interested in
+        // CursorAdapter requires column title of "_Id"
+        String[] projection = {LibraryContract.LibraryEntry._ID,
+                LibraryContract.LibraryEntry.COL_TITLE,
+                LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED};
+
+        // This loader will execute the ContentProvider's query  method on a background thread
+        return new CursorLoader(this,                           // parent activity context
+                LibraryContract.LibraryEntry.CONTENT_URI,       // ProviderContent URI
+                projection,
+                null,
+                null,
+                null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        // update(@link LibraryCursorAdapter) with this new cursor containing update Libary data
+        mCursorAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        // Callback called when the data needs to be deleted- use null
+        mCursorAdapter.swapCursor(null);
+    }
 }
