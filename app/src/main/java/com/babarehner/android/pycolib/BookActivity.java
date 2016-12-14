@@ -1,6 +1,7 @@
 package com.babarehner.android.pycolib;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,18 @@ public class BookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
+
+        //Get intent and get data from intent
+        Intent intent = getIntent();
+        Uri currentLibraryUri = intent.getData();
+
+        // Idf the intent does not contain an single item Uri
+        // FAB clicked
+        if (currentLibraryUri == null){
+            setTitle(getString(R.string.book_activity_title_add_book));
+        } else {                            // individual item clicked
+            setTitle(getString(R.string.book_activity_title_edit_book));
+        }
 
         mTitleEditText = (EditText) findViewById(R.id.edit_title);
         mAuthorEditText = (EditText) findViewById(R.id.edit_author);

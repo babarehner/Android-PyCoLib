@@ -1,6 +1,7 @@
 package com.babarehner.android.pycolib;
 
 import android.app.LoaderManager;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
@@ -58,6 +60,24 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         // There is no data now (data won't show up unit loader finishes) so null for Cursor
         mCursorAdapter = new LibraryCursorAdapter(this, null);
         libraryListView.setAdapter(mCursorAdapter);
+        // the  item click listener
+        libraryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int pos, long id) {
+                //create new intent to go to {@link BookActivity}
+                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+
+                // Form the content URI by appending the "id: passed to this method into
+                // the {@link LibraryEntry#CONTENT_URI
+                Uri currentLibraryUri = ContentUris.withAppendedId(LibraryContract.LibraryEntry.CONTENT_URI, id);
+
+                // Set the URI on the data field of the intent
+                intent.setData(currentLibraryUri);
+
+                // Start the {@link BookActivity in edit mode
+                startActivity(intent);
+            }
+        });
 
         // Fire up the loader
         getLoaderManager().initLoader(BOOK_LOADER, null, this);

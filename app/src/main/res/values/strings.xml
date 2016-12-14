@@ -24,4 +24,8 @@
     <!-- Subtitle text for the empty view that prompts the user to add a pet [CHAR LIMIT=50] -->
     <string name="empty_view_subtitle_text">Please get started by adding a Python Book!</string>
 
+    <!-- Header for BookActivity Screen -->
+    <string name="book_activity_title_edit_book">Edit Book</string>
+    <string name="book_activity_title_add_book">Add Book</string>
+
 </resources>
