@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
@@ -95,6 +96,8 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_pythonistas:
+                Toast.makeText(this, "Pythonistas NOT currenly implemented", Toast.LENGTH_SHORT).show();
             case R.id.action_insert_test_data:
                 insertTestDataBook();
                 return true;
@@ -113,7 +116,6 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
-        //long newRowId = db.insert(TBOOKS, null, values);
 
         //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
 
@@ -122,8 +124,6 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
 
 
     private void deleteAll() {
-        //SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        //int deleteRowCount = db.delete(TBOOKS, null, null);
 
         //Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }

@@ -9,8 +9,7 @@
     <string name="hint_title">Book Title</string>
 
     <string name="hint_author">Author</string>
-    <string name="action_save">Save</string>
-    <string name="action_delete">Delete Book</string>
+
     <string name="category_publish_year">Year Published</string>
     <string name="book_borrower">Borrower</string>
     <string name="hint_borrower_name">Name</string>
@@ -31,5 +30,12 @@
     <string name="edit_update_book_failed">Book update failed</string>
     <string name="edit_update_book_success">Book update success</string>
     <string name="missing_book_title">Book title required to save book</string>
+    <string name="unsaved_changes_dialog_msg">Discard changes and quit editing</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
 
+    <!-- in menu.xml -->
+    <string name="action_pythonsista">Pythonistas</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete Book</string>
 </resources>

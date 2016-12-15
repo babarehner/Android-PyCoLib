@@ -3,16 +3,20 @@ package com.babarehner.android.pycolib;
 import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.CursorLoader;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,14 +39,22 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private int mPublishYear;
 
-    // Uri for the current book item
-    private Uri mCurrentBookUri;
+    private Uri mCurrentBookUri;        // Uri for the current book item
 
     // The first year possible for the publish year
-    // used to get position in the  spinner
-    public static final int START_YEAR = 1991;
+    public static final int START_YEAR = 1991;  // used to get position in the  spinner
 
-    @Override
+    private boolean mBookChanged = false;   // When edit change made to a book row
+
+    // Touch Listener to check if changes made to a book
+    private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            mBookChanged = true;
+            return false;
+        }
+    };
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
@@ -63,11 +75,20 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
             getLoaderManager().initLoader(EXISTING_BOOK_LOADER, null, BookActivity.this);
         }
 
+        // Find all inpuut views to read from
         mTitleEditText = (EditText) findViewById(R.id.edit_title);
         mAuthorEditText = (EditText) findViewById(R.id.edit_author);
         mPublishYearSpinner = (Spinner) findViewById(R.id.spinner_publish_year);
-        setUpSpinner();
         mBorrowerEditText = (EditText) findViewById(R.id.edit_borrower);
+
+        //Setup TouchListener on all the input fields to see if user has touched
+        // or modified a field.
+        mTitleEditText.setOnTouchListener(mTouchListener);
+        mAuthorEditText.setOnTouchListener(mTouchListener);
+        mPublishYearSpinner.setOnTouchListener(mTouchListener);
+        mBorrowerEditText.setOnTouchListener(mTouchListener);
+
+        setUpSpinner();
     }
 
     private void setUpSpinner() {
@@ -116,6 +137,25 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
                 return true;
             case R.id.action_delete_all_data:
                 // delete book in db
+                return true;
+            // this is the <- button on the header
+            case android.R.id.home:
+                // book has not changed
+                if (!mBookChanged) {
+                    NavUtils.navigateUpFromSameTask(BookActivity.this);
+                    return true;
+                }
+                // set up dialog to warn user about unsaved changes
+                DialogInterface.OnClickListener discardButtonClickListener =
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                //user click discard. Navigate up to parent activity
+                                NavUtils.navigateUpFromSameTask(BookActivity.this);
+                            }
+                        };
+                // show user they have unsaved changes
+                showUnsavedChangesDialog(discardButtonClickListener);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -218,6 +258,46 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         mBorrowerEditText.setText("");
     }
 
+    //
+    private void showUnsavedChangesDialog(DialogInterface.OnClickListener discardButtonClickListener){
+        // Create AlertDialogue.Builder amd set message and click listeners
+        // for positive and negative buttons in dialogue.
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.unsaved_changes_dialog_msg);
+        builder.setPositiveButton(R.string.discard, discardButtonClickListener);
+        builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                // user clicked the "keep eiditing" button. Dismiss dialog and keep editing
+                if (dialog !=null) { dialog.dismiss();}
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    // Override the activity's normal back button. If book has changed create a
+    // discard click listener that closed current activity.
+    @Override
+    public void onBackPressed() {
+        if (!mBookChanged) {
+            super.onBackPressed();
+        }
+            //otherwise if there are unsaved changes setup a dialog to warn the  user
+            //handles the user confirming that changes should be made
+            DialogInterface.OnClickListener discardButtonClickListener =
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            // user clicked "Discard" button, close the current activity
+                            finish();
+                        }
+                    };
+
+            // show dialog that there are unsaved changes
+            showUnsavedChangesDialog(discardButtonClickListener);
+    }
 
 }
 

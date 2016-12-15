@@ -5,6 +5,11 @@
     tools:context=".LibraryActivity">
 
     <item
+        android:id="@+id/action_pythonistas"
+        android:title="@string/action_pythonsista"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_insert_test_data"
         android:title="@string/action_insert_test_data"
         app:showAsAction="never" />
