@@ -45,7 +45,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book);
-        
+
         //Get intent and get data from intent
         Intent intent = getIntent();
         mCurrentBookUri = intent.getData();
@@ -109,7 +109,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save:
-                insertBook();
+                saveBook();
                 finish();
                 return true;
             case R.id.action_delete_all_data:
@@ -119,8 +119,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         return super.onOptionsItemSelected(item);
     }
 
-    private void insertBook(){
-
+    private void saveBook(){
         // read from EditText input fields
         String titleString = mTitleEditText.getText().toString().trim();
         String authorString = mAuthorEditText.getText().toString().trim();
@@ -131,16 +130,32 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         values.put(LibraryContract.LibraryEntry.COL_TITLE, titleString);
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, authorString);
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, mPublishYear);
-        Log.v("BookActivity"," mPublishYear " + mPublishYear);
+        //Log.v("BookActivity"," mPublishYear " + mPublishYear);
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
 
-        Uri newUri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
-        if (newUri == null) {
-            Toast.makeText(this, getString(R.string.library_provider_insert_book_failed),
-                    Toast.LENGTH_SHORT).show();
+        if (mCurrentBookUri == null) {
+            // a new book
+            Uri newUri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
+            if (newUri == null) {
+                Toast.makeText(this, getString(R.string.library_provider_insert_book_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.library_provider_insert_book_good),
+                        Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, getString(R.string.library_provider_insert_book_good),
-                    Toast.LENGTH_SHORT).show();
+            // existing book so update with content URI and pass in ContentValues
+            int rowsAffected = getContentResolver().update(mCurrentBookUri, values, null, null);
+            if (rowsAffected == 0) {
+                // TODO Check db- Text Not Null does not seem to be working or entering
+                // "" does not mean NOT Null- there must be an error message closer to the db!!!
+                Toast.makeText(this, getString(R.string.edit_update_book_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.edit_update_book_success),
+                        Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
