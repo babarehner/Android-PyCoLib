@@ -20,7 +20,7 @@
     <string name="library_provider_insert_book_failed">Book save failed</string>
 
     <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
-    <string name="empty_view_title_text">OH NO Mr. Bill There\'s nothing to read in here!!!</string>
+    <string name="empty_view_title_text">OH NO Mr. Bill I\'m a lonely Pythonista with nothing to read!!!</string>
     <!-- Subtitle text for the empty view that prompts the user to add a pet [CHAR LIMIT=50] -->
     <string name="empty_view_subtitle_text">Please get started by adding a Python Book!</string>
 
@@ -30,5 +30,6 @@
     <string name="book_activity_title_add_book">Add Book</string>
     <string name="edit_update_book_failed">Book update failed</string>
     <string name="edit_update_book_success">Book update success</string>
+    <string name="missing_book_title">Book title required to save book</string>
 
 </resources>

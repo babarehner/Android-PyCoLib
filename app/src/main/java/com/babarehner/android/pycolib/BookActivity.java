@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,7 +56,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         if (mCurrentBookUri == null){
             // set page header to add book
             setTitle(getString(R.string.book_activity_title_add_book));
-            // take out the delet menu
+            // take out the delete menu
             invalidateOptionsMenu();
         } else {                            // individual item clicked
             setTitle(getString(R.string.book_activity_title_edit_book));
@@ -70,6 +71,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     private void setUpSpinner() {
+        // TODO try and have spinner pull up publish year dynamically
         // Create adapter for spinner. Use string-array from resource file
         // Use default layout
         ArrayAdapter publishYearSpinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -110,7 +112,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         switch (item.getItemId()) {
             case R.id.action_save:
                 saveBook();
-                finish();
+                finish();       // exit activity
                 return true;
             case R.id.action_delete_all_data:
                 // delete book in db
@@ -120,11 +122,19 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     private void saveBook(){
+
         // read from EditText input fields
         String titleString = mTitleEditText.getText().toString().trim();
         String authorString = mAuthorEditText.getText().toString().trim();
         //String publishYearString = String.valueOf(mPublishYear);
         String borrowerString = mBorrowerEditText.getText().toString().trim();
+
+        // if adding book and the title field is left blank do nothing
+        if (mCurrentBookUri == null && TextUtils.isEmpty(titleString)) {
+            Toast.makeText(this, getString(R.string.missing_book_title),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         ContentValues values = new ContentValues();
         values.put(LibraryContract.LibraryEntry.COL_TITLE, titleString);
@@ -207,6 +217,8 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         mPublishYearSpinner.setSelection(0);
         mBorrowerEditText.setText("");
     }
+
+
 }
 
 
