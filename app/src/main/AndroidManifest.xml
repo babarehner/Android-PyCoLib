@@ -11,21 +11,26 @@
         <activity android:name=".LibraryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".BookActivity"
-            android:theme="@style/BookTheme"
-            android:parentActivityName=".LibraryActivity">
+            android:parentActivityName=".LibraryActivity"
+            android:theme="@style/BookTheme">
+
             <!-- Parent activity metaadata to support Android 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LibraryActivity" />
         </activity>
+
         <provider
             android:name=".data.LibraryProvider"
             android:authorities="com.babarehner.android.pycolib"
             android:exported="false" />
+
     </application>
+
 </manifest>

@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -124,8 +125,8 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
 
 
     private void deleteAll() {
-
-        //Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
+        int deleteRowCount = getContentResolver().delete(LibraryContract.LibraryEntry.CONTENT_URI, null, null);
+        Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }
 
     @Override
