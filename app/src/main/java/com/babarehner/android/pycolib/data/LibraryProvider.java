@@ -183,7 +183,6 @@ public class LibraryProvider extends ContentProvider {
             // Notify all listeners that the date at the given Uri has changed
             getContext().getContentResolver().notifyChange(uri, null);
         }
-
         return rowsDeleted;
     }
 

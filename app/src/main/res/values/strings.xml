@@ -23,6 +23,12 @@
     <!-- Subtitle text for the empty view that prompts the user to add a pet [CHAR LIMIT=50] -->
     <string name="empty_view_subtitle_text">Please get started by adding a Python Book!</string>
 
+    <!-- in menu.xml -->
+    <string name="action_pythonsista">Pythonistas</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete Book</string>
+
+
     <!-- in BookActivity -->
     <!-- Header for BookActivity Screen -->
     <string name="book_activity_title_edit_book">Edit Book</string>
@@ -33,9 +39,11 @@
     <string name="unsaved_changes_dialog_msg">Discard changes and quit editing</string>
     <string name="discard">Discard</string>
     <string name="keep_editing">Keep Editing</string>
+    <!-- Delete alert dialog and delete book -->
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_dialog_msg">Delete this book</string>
 
-    <!-- in menu.xml -->
-    <string name="action_pythonsista">Pythonistas</string>
-    <string name="action_save">Save</string>
-    <string name="action_delete">Delete Book</string>
+    <string name="delete_book_successful"> Booke deleted</string>
+    <string name="delete_book_failure">Book not deleted (Error)</string>
 </resources>

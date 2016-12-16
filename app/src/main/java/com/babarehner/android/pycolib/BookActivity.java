@@ -135,8 +135,9 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
                 saveBook();
                 finish();       // exit activity
                 return true;
-            case R.id.action_delete_all_data:
-                // delete book in db
+            case R.id.action_delete:
+                // Alert Dialog for deleting one book
+                showDeleteConfirmationDialog();
                 return true;
             // this is the <- button on the header
             case android.R.id.home:
@@ -160,6 +161,20 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    // hide delete menu item when adding a new book
+    @Override
+    public boolean onPrepareOptionsMenu(Menu m) {
+        super.onPrepareOptionsMenu(m);
+        // if this is add a book, hide "delete" menu item
+        if (mCurrentBookUri == null) {
+            MenuItem menuItem = m.findItem(R.id.action_delete);
+            menuItem.setVisible(false);
+        }
+        return true;
+    }
+
 
     private void saveBook(){
 
@@ -297,6 +312,47 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
 
             // show dialog that there are unsaved changes
             showUnsavedChangesDialog(discardButtonClickListener);
+    }
+
+
+    private void showDeleteConfirmationDialog() {
+        // Create and AlertDialog.Builder, set message and click
+        // listeners for positive and negative buttons
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.delete_dialog_msg);
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User clicked delet so delete
+                deleteBook();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked cancel, dismiss dialog, continue editing
+               if (dialog != null) {dialog.dismiss();}
+            }
+        });
+        // Create and show dialog
+        AlertDialog alertD = builder.create();
+        alertD.show();
+    }
+
+
+    // delete book from db
+    private void deleteBook(){
+        if (mCurrentBookUri != null) {
+            int rowsDeleted = getContentResolver().delete(mCurrentBookUri, null, null);
+            if (rowsDeleted == 0) {
+                Toast.makeText(this, getString(R.string.delete_book_failure),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.delete_book_successful),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+      finish();
     }
 
 }
