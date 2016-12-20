@@ -99,6 +99,8 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         switch (item.getItemId()) {
             case R.id.action_pythonistas:
                 Toast.makeText(this, "Pythonistas NOT currenly implemented", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LibraryActivity.this, PatronActivity.class);
+                startActivity(intent);
             case R.id.action_insert_test_data:
                 insertTestDataBook();
                 return true;
