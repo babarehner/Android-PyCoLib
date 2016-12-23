@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         patron.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent patronIntent = new Intent(MainActivity.this, LibraryActivity.class);
+                Intent patronIntent = new Intent(MainActivity.this, PatronActivity.class);
                 startActivity(patronIntent);
             }
         });

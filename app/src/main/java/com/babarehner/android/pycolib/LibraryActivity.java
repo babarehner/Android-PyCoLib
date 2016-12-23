@@ -21,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
@@ -97,10 +96,6 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_pythonistas:
-                Toast.makeText(this, "Pythonistas NOT currenly implemented", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LibraryActivity.this, PatronActivity.class);
-                startActivity(intent);
             case R.id.action_insert_test_data:
                 insertTestDataBook();
                 return true;
@@ -160,4 +155,6 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         // Callback called when the data needs to be deleted- use null
         mCursorAdapter.swapCursor(null);
     }
+
+
 }

@@ -26,7 +26,7 @@
     <!-- in menu.xml -->
     <string name="action_pythonsista">Pythonistas</string>
     <string name="action_save">Save</string>
-    <string name="action_delete">Delete Book</string>
+    <string name="action_delete">Delete this entry</string>
 
 
     <!-- in BookActivity -->
@@ -45,4 +45,15 @@
     <string name="delete_dialog_msg">Delete this book</string>
     <string name="delete_book_successful"> Booke deleted</string>
     <string name="delete_book_failure">Book not deleted (Error)</string>
+
+    <!-- in PatronActivity -->
+    <string name="empty_view_patron_text">Enter the Python library and turn on the lights!</string>
+    <string name="empty_view_subtitle_patron_text">Please enter a new Pythonista to borrow a book.</string>
+    <string name="hint_last_name">last name</string>
+    <string name="hint_first_name">first name</string>
+    <string name="Pythonista">Pythonista</string>
+    <string name="category_email">E-Mail</string>
+    <string name="hint_email">email address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="hint_phone">phone number</string>
 </resources>

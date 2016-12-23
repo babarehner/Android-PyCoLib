@@ -58,6 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_book"/>
+        android:src="@drawable/ic_library_books_black_36dp"
+        android:scaleType="center"/>
 
 </RelativeLayout>

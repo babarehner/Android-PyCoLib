@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    tools:context=".BookActivity">
+
+    <!-- Pythonista  & Contact category -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Label -->
+        <TextView
+            android:text="@string/Pythonista"
+            style="@style/CategoryStyle" />
+
+        <!-- Input fields -->
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
+
+            <!-- Last Name field -->
+            <EditText
+                android:id="@+id/edit_last_name"
+                android:hint="@string/hint_last_name"
+                android:inputType="textCapWords"
+                style="@style/BookFieldStyle" />
+
+            <!-- First Name field -->
+            <EditText
+                android:id="@+id/edit_first_name"
+                android:hint="@string/hint_first_name"
+                android:inputType="textCapWords"
+                style="@style/BookFieldStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Publish Year category -->
+    <LinearLayout
+        android:id="@+id/container_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Label -->
+        <TextView
+            android:text="@string/category_email"
+            style="@style/CategoryStyle" />
+
+        <!-- Input field -->
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp">
+
+            <!-- email address field -->
+            <EditText
+                android:id="@+id/edit_email"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                style="@style/BookFieldStyle" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Borrower category -->
+    <LinearLayout
+        android:id="@+id/container_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Label -->
+        <TextView
+            android:text="@string/phone_number"
+            style="@style/CategoryStyle" />
+
+        <!-- Input field -->
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:paddingLeft="4dp">
+
+            <!-- Borrower input field -->
+            <EditText
+                android:id="@+id/edit_borrower"
+                android:hint="@string/hint_phone"
+                android:inputType="phone"
+                style="@style/BookFieldStyle" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
