@@ -21,15 +21,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d5e8e9909d6508e03bfeedca09117b45ae7b2b17/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -45,6 +36,60 @@
         revision="24.0.2"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
         <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_f5f066dc4731c637454a0839a09feb16f3716b14/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_74839697a561760b22e02cd12245daa6ad54443e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1511492e60e5f6f63f7850b8637482d0a6353f93/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a46d60ffc184f0f46972c28a3480615c053b4981/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="db5e77bfecfccccecf604421c9c65cbcf4ebd292">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_063d45d05fb236fae3705fc137ca5fd980e525ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_827e1be8b23a6e1362ad318c9393d7b8160edd0e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d5e8e9909d6508e03bfeedca09117b45ae7b2b17/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -93,38 +138,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_74839697a561760b22e02cd12245daa6ad54443e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1511492e60e5f6f63f7850b8637482d0a6353f93/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_a46d60ffc184f0f46972c28a3480615c053b4981/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="831c3c05204f55db7a29ec516e0d03e152385fef">
+        sha1="f94eff8b4add6c4807de9c591aed47aa6ce0b721">
         <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_fe758be044a8fdf6340eb07c28850c5605bca26d/classes.dex" />
     </item>
     <item
@@ -135,24 +153,6 @@
         revision="24.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_061c8a17b33043198048df8b8a2c3c47d49f41bb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="dfd398d1defcfd4342598e8de96332f138dda14a">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_063d45d05fb236fae3705fc137ca5fd980e525ae/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_827e1be8b23a6e1362ad318c9393d7b8160edd0e/classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -34,10 +34,11 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
                 + LibraryEntry.COL_BORROWER + " TEXT);";
                 // + LibraryEntry.COL_CHECKED_OUT + " BOOLEAN;";
 
-        String SQL_CREATE_BORROWERS_TABLE = "CREATE TABLE " + LibraryEntry.TBORROWERS
+        String SQL_CREATE_PYTHONISTAS_TABLE = "CREATE TABLE " + LibraryEntry.TPYTHONISTAS
                 + "("
                 + LibraryEntry._IDB + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + LibraryEntry.COL_NAME + " TEXT_NOT_NULL, "
+                + LibraryEntry.COL_F_NAME + " TEXT_NOT_NULL, "
+                + LibraryEntry.COL_L_NAME + "TEXT_NOT_NULL"
                 + LibraryEntry.COL_PHONE + " TEXT, "
                 + LibraryEntry.COL_EMAIL + " TEXT);" ;
 
@@ -51,7 +52,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
 
 
         db.execSQL(SQL_CREATE_BOOKS_TABLE);
-        db.execSQL(SQL_CREATE_BORROWERS_TABLE);
+        db.execSQL(SQL_CREATE_PYTHONISTAS_TABLE);
         db.execSQL(SQL_CREATE_LOAN_TABLE);
     }
 

@@ -75,11 +75,12 @@ public final class LibraryContract {
         //public static final String COL_CHECKED_OUT = "CheckedOut";
 
         public static final int LOWEST_YEAR = 1991;     // When Python was born
-        public static final int HIGHEST_YEAR = 2017;    // Current year + 1
+        public static final int HIGHEST_YEAR = 2018;    // Current year + 1
 
         public static final String _IDB = BaseColumns._ID;  //Wonder if I can have two different
-        public static final String TBORROWERS = "TBorrowers";
-        public static final String COL_NAME = "Name";
+        public static final String TPYTHONISTAS = "TPythobnistas";
+        public static final String COL_F_NAME = "FirstName";
+        public static final String COL_L_NAME = "LastName";
         public static final String COL_PHONE = "Phone";
         public static final String COL_EMAIL = "EMail";
 
