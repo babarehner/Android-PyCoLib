@@ -36,7 +36,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
 
         String SQL_CREATE_PYTHONISTAS_TABLE = "CREATE TABLE " + LibraryEntry.TPYTHONISTAS
                 + "("
-                + LibraryEntry._IDB + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + LibraryEntry._IDP + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LibraryEntry.COL_F_NAME + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_L_NAME + "TEXT_NOT_NULL"
                 + LibraryEntry.COL_PHONE + " TEXT, "

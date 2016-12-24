@@ -57,10 +57,10 @@ public class PatronActivity extends AppCompatActivity {
     private void insertTestDataPythonista() {
 
         ContentValues values = new ContentValues();
-        values.put(LibraryContract.LibraryEntry.COL_TITLE, "Python Cookbook 2nd Edition");
-        values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
-        values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
-        values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
+        values.put(LibraryContract.LibraryEntry.COL_F_NAME, "Mike");
+        values.put(LibraryContract.LibraryEntry.COL_L_NAME, "Rehner");
+        values.put(LibraryContract.LibraryEntry.COL_EMAIL, "mrehner@e-wrench.net");
+        values.put(LibraryContract.LibraryEntry.COL_PHONE, "614 477 6537");
 
         //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
 

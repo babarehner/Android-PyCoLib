@@ -23,8 +23,8 @@ public class LibraryProvider extends ContentProvider {
 
     private static final int BOOKS = 100;
     private static final int BOOK_ID = 101;
-    private static final int BORROWER = 200;
-    private static final int BORROWER_ID = 201;
+    private static final int PYTHONISTAS = 200;
+    private static final int PTHONISTA_ID = 205;
     private static final int LOANED = 300;
     private static final int LOANED_ID = 301;
 
@@ -194,7 +194,7 @@ public class LibraryProvider extends ContentProvider {
             case BOOKS:
                 return LibraryContract.LibraryEntry.CONTENT_LIST_TYPE;
             case BOOK_ID:
-                return LibraryContract.LibraryEntry.CONENTENT_ITEM_TYPE;
+                return LibraryContract.LibraryEntry.CONTENT_ITEM_TYPE;
             default:
                 throw new IllegalStateException("Unkown UrI: " + uri + "with match: " + match);
         }
