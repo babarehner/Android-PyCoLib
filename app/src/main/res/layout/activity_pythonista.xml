@@ -93,7 +93,7 @@
 
             <!-- Borrower input field -->
             <EditText
-                android:id="@+id/edit_borrower"
+                android:id="@+id/edit_phone"
                 android:hint="@string/hint_phone"
                 android:inputType="phone"
                 style="@style/BookFieldStyle" />

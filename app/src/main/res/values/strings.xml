@@ -56,4 +56,13 @@
     <string name="hint_email">email address</string>
     <string name="phone_number">Phone Number</string>
     <string name="hint_phone">phone number</string>
+
+    <!-- in PythonistaActivity -->
+    <string name="patron_activity_title_add_pythonista">Add Pythonista</string>
+    <string name="patron_activity_title_edit_pythonista">Edit Pythonista</string>
+    <string name="missing_first_last_name">First and Last Name Required</string>
+    <string name="pythonista_provider_insert_pythonista_failed">Add Pythonista Failed</string>
+    <string name="pythonista_provider_insert_pythonista_good">Pythonista Successfully Added</string>
+    <string name="edit_update_pythonista_failed">Update Pythonista Failed</string>
+    <string name="edit_update_pythonista_success">Update Pythonista Successful</string>
 </resources>

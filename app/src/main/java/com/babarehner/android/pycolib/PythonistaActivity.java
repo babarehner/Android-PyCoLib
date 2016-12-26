@@ -1,16 +1,23 @@
 package com.babarehner.android.pycolib;
 
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.CursorLoader;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
@@ -26,13 +33,13 @@ public class PythonistaActivity extends AppCompatActivity implements
     private EditText mEMailET;
     private EditText mPhoneET;
 
-    private boolean mBookChanged = false;
+    private boolean mPythonistaChanged = false;
 
     // Touch listener check if changes made to a pythonista
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            mBookChanged = false;
+            mPythonistaChanged = false;
             return false;
         }
     };
@@ -40,14 +47,113 @@ public class PythonistaActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pythonista);
+
+        // get intent and get data from intent
+        Intent intent = getIntent();
+        mCurrentPythonistaUri = intent.getData();
+
+        // if the  intent does not contain a single item Uri or the FAB is clicked
+        if (mCurrentPythonistaUri == null){
+            // Set page header to add a pythonista
+            setTitle(getString(R.string.patron_activity_title_add_pythonista));
+            invalidateOptionsMenu();
+        } else {
+            setTitle(getString(R.string.patron_activity_title_edit_pythonista));
+        }
+
+        //Find all input views to read from
+        mFNameET = (EditText) findViewById(R.id.edit_first_name);
+        mLNameET = (EditText) findViewById(R.id.edit_last_name);
+        mEMailET = (EditText) findViewById(R.id.edit_email);
+        mPhoneET = (EditText) findViewById(R.id.edit_phone);
+
+        mFNameET.setOnTouchListener(mTouchListener);
+        mFNameET.setOnTouchListener(mTouchListener);
+        mEMailET.setOnTouchListener(mTouchListener);
+        mPhoneET.setOnTouchListener(mTouchListener);
     }
 
     // Options menu automatially called from onCreate I believe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_edit, menu);
-
         return true;
+    }
+
+    // Select from the options menu
+    //@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_save:
+                savePythonista();
+                finish();       // exit activity
+                return true;
+            case R.id.action_delete:
+                // Alert Dialog for deleting one book
+                // TODO showDeleteConfirmationDialog();
+                return true;
+            // this is the <- button on the header
+            case android.R.id.home:
+                // book has not changed
+                if (!mPythonistaChanged) {
+                    NavUtils.navigateUpFromSameTask(PythonistaActivity.this);
+                    return true;
+                }
+                // set up dialog to warn user about unsaved changes
+                DialogInterface.OnClickListener discardButtonClickListener =
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                //user click discard. Navigate up to parent activity
+                                NavUtils.navigateUpFromSameTask(PythonistaActivity.this);
+                            }
+                        };
+                // show user they have unsaved changes
+                // TODO showUnsavedChangesDialog(discardButtonClickListener);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void savePythonista(){
+        // read from the EditText input field
+        String fNameStr = mFNameET.getText().toString().trim();
+        String lNameStr = mLNameET.getText().toString().trim();
+        String eMailStr = mEMailET.getText().toString().trim();
+        String phoneStr = mPhoneET.getText().toString().trim();
+
+        if (mCurrentPythonistaUri == null && (TextUtils.isEmpty(fNameStr) || TextUtils.isEmpty(lNameStr))) {
+            Toast.makeText(this, getString(R.string.missing_first_last_name),
+                    Toast.LENGTH_SHORT).show();
+                    return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put(LibraryContract.LibraryEntry.COL_F_NAME, fNameStr);
+        values.put(LibraryContract.LibraryEntry.COL_F_NAME, lNameStr);
+        values.put(LibraryContract.LibraryEntry.COL_F_NAME, eMailStr);
+        values.put(LibraryContract.LibraryEntry.COL_F_NAME, phoneStr);
+
+        if (mCurrentPythonistaUri == null) {
+            // a new book
+            Uri newUri = getContentResolver().insert(LibraryContract.LibraryEntry.PYTHONISTA_URI, values);
+            if (newUri == null){
+                Toast.makeText(this, getString(R.string.pythonista_provider_insert_pythonista_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.pythonista_provider_insert_pythonista_good),
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {   // now we are editing/updating the pythonista
+            int rowsAffected = getContentResolver().update(mCurrentPythonistaUri, values, null, null);
+            if (rowsAffected == 0) {
+                Toast.makeText(this, getString(R.string.edit_update_pythonista_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.edit_update_pythonista_success),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -90,41 +196,6 @@ public class PythonistaActivity extends AppCompatActivity implements
 
     }
 
-    // Select from the options menu
-    //@Override
-    /*
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_save:
-                saveBook();
-                finish();       // exit activity
-                return true;
-            case R.id.action_delete:
-                // Alert Dialog for deleting one book
-                showDeleteConfirmationDialog();
-                return true;
-            // this is the <- button on the header
-            case android.R.id.home:
-                // book has not changed
-                if (!mBookChanged) {
-                    NavUtils.navigateUpFromSameTask(BookActivity.this);
-                    return true;
-                }
-                // set up dialog to warn user about unsaved changes
-                DialogInterface.OnClickListener discardButtonClickListener =
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int i) {
-                                //user click discard. Navigate up to parent activity
-                                NavUtils.navigateUpFromSameTask(BookActivity.this);
-                            }
-                        };
-                // show user they have unsaved changes
-                showUnsavedChangesDialog(discardButtonClickListener);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
-    */
+
 }
