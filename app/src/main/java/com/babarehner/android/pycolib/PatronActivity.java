@@ -23,7 +23,7 @@ import com.babarehner.android.pycolib.data.LibraryContract;
 public class PatronActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
-    private static final int PYTHONISTA_LOADER = 0;
+    private static final int PYTHONISTA_LOADER = 1;
     PythonistaCursorAdapter mCursorAdapterPythonista;
 
     @Override
@@ -101,8 +101,8 @@ public class PatronActivity extends AppCompatActivity implements
 
 
     private void deleteAllPythonista() {
-        int deleteRowCount = getContentResolver().delete(LibraryContract.LibraryEntry.CONTENT_URI, null, null);
-        Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
+        int deleteRowCount = getContentResolver().delete(LibraryContract.LibraryEntry.PYTHONISTA_URI, null, null);
+        Log.v("PatronActivity", "Number of Rows deleted: " + deleteRowCount);
     }
 
     @Override

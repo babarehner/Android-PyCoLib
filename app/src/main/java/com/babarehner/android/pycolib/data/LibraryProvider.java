@@ -77,6 +77,7 @@ public class LibraryProvider extends ContentProvider {
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
                 c = db.query(LibraryContract.LibraryEntry.TPYTHONISTAS, projection, selection,
                         selectionArgs, null, null, sortOrder);
+                break;
             default:
                 throw new IllegalArgumentException("Cannnot query unknown URI: " + uri);
         }
@@ -216,6 +217,15 @@ public class LibraryProvider extends ContentProvider {
                 selection = LibraryContract.LibraryEntry._ID + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
+                break;
+            case PYTHONISTAS:
+                rowsDeleted = db.delete(LibraryContract.LibraryEntry.TPYTHONISTAS, selection, selectionArgs);
+                break;
+            case PYTHONISTA_ID:
+                // Delete a single row fiven by the ID in the URI
+                selection = LibraryContract.LibraryEntry._IDP + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                rowsDeleted = db.delete(LibraryContract.LibraryEntry.TPYTHONISTAS, selection, selectionArgs);
                 break;
             default:
                 throw new IllegalArgumentException("Deletion is not supported for: " + uri);

@@ -26,6 +26,8 @@ import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.LOWEST_YEAR;
+
 public class BookActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     public static final int EXISTING_BOOK_LOADER = 0;
@@ -40,9 +42,6 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     private int mPublishYear;
 
     private Uri mCurrentBookUri;        // Uri for the current book item
-
-    // The first year possible for the publish year
-    public static final int START_YEAR = 1991;  // used to get position in the  spinner
 
     private boolean mBookChanged = false;   // When edit change made to a book row
 
@@ -259,7 +258,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
             mAuthorEditText.setText(author);
             mBorrowerEditText.setText(borrower);
             // Get the position of the publish date in the spinner
-            mPublishYearSpinner.setSelection(publishYear - START_YEAR);
+            mPublishYearSpinner.setSelection(publishYear - LOWEST_YEAR);
         }
 
     }
