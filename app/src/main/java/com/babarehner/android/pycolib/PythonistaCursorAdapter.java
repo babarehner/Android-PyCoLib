@@ -53,7 +53,7 @@ public class PythonistaCursorAdapter extends CursorAdapter {
         String lastName = c.getString(lNameColIndex);
 
         firstNameTV.setText(firstName);
-        lastNameTV.setText(lastName);
+        lastNameTV.setText(lastName + ", ");
     }
 }
 

@@ -38,9 +38,9 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
                 + "("
                 + LibraryEntry._IDP + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LibraryEntry.COL_F_NAME + " TEXT_NOT_NULL, "
-                + LibraryEntry.COL_L_NAME + "TEXT_NOT_NULL"
+                + LibraryEntry.COL_L_NAME + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_PHONE + " TEXT, "
-                + LibraryEntry.COL_EMAIL + " TEXT);" ;
+                + LibraryEntry.COL_EMAIL + " TEXT);";
 
         String SQL_CREATE_LOAN_TABLE = "CREATE TABLE " + LibraryEntry.TLOANED
                 + "("

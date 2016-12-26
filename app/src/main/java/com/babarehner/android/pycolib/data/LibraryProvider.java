@@ -11,6 +11,7 @@ import android.util.Log;
 
 import static com.babarehner.android.pycolib.data.LibraryContract.CONTENT_AUTHORITY;
 import static com.babarehner.android.pycolib.data.LibraryContract.PATH_TBOOKS;
+import static com.babarehner.android.pycolib.data.LibraryContract.PATH_TPYTHONISTAS;
 
 
 /**
@@ -24,7 +25,7 @@ public class LibraryProvider extends ContentProvider {
     private static final int BOOKS = 100;
     private static final int BOOK_ID = 101;
     private static final int PYTHONISTAS = 200;
-    private static final int PTHONISTA_ID = 205;
+    private static final int PYTHONISTA_ID = 205;
     private static final int LOANED = 300;
     private static final int LOANED_ID = 301;
 
@@ -34,6 +35,8 @@ public class LibraryProvider extends ContentProvider {
     static{
         sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TBOOKS, BOOKS);
         sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TBOOKS + "/#", BOOK_ID);
+        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TPYTHONISTAS, PYTHONISTAS);
+        sUriMatcher.addURI(CONTENT_AUTHORITY, PATH_TPYTHONISTAS + "/#", PYTHONISTA_ID);
     }
 
 
@@ -65,8 +68,17 @@ public class LibraryProvider extends ContentProvider {
                 c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, selection,
                         selectionArgs, null, null, sortOrder);
                 break;
+            case PYTHONISTAS:
+                c = db.query(LibraryContract.LibraryEntry.TPYTHONISTAS, projection, selection,
+                        selectionArgs, null, null, sortOrder);
+                break;
+            case PYTHONISTA_ID:
+                selection = LibraryContract.LibraryEntry._IDP + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                c = db.query(LibraryContract.LibraryEntry.TPYTHONISTAS, projection, selection,
+                        selectionArgs, null, null, sortOrder);
             default:
-                throw new IllegalArgumentException("Cannnot query unknonw URI: " + uri);
+                throw new IllegalArgumentException("Cannnot query unknown URI: " + uri);
         }
 
         // Notify if the data at this URI changes. Then we need to update cursor
@@ -82,6 +94,8 @@ public class LibraryProvider extends ContentProvider {
         switch (match) {
             case BOOKS:
                 return insertBook(uri, values);
+            case PYTHONISTAS:
+                return insertPythonista(uri, values);
             default:
                 throw new IllegalArgumentException("Insertion is not supported for " + uri);
         }
@@ -105,6 +119,34 @@ public class LibraryProvider extends ContentProvider {
         // insert a book into the TBooks Table
         long id = db.insert(LibraryContract.LibraryEntry.TBOOKS, null, values);
         Log.v(LOG_TAG, "Book not entered " + values);
+        if (id == -1){          // if the insertion failed
+            Log.e(LOG_TAG, "Failed to insert row for " + uri);
+            return null;
+        }
+
+        // Notify all listeners that the data has changed for the books content URI
+        getContext().getContentResolver().notifyChange(uri, null);
+
+        // Return the new URI with the ID (of the newly inserted row) appended at the end
+        return ContentUris.withAppendedId(uri,id);
+    }
+
+    //Insert a book into the books table with the given content values. Return the new conntent URI
+    //for that specific row inthe  database
+    private Uri insertPythonista(Uri uri, ContentValues values){
+        // Check that the  name is not null
+        String fName = values.getAsString(LibraryContract.LibraryEntry.COL_F_NAME);
+        String lName = values.getAsString(LibraryContract.LibraryEntry.COL_L_NAME);
+        if (fName == null || lName == null){
+            throw new IllegalArgumentException("First or Last Name Required!");
+        }
+
+        String eMail = values.getAsString(LibraryContract.LibraryEntry.COL_EMAIL);
+        String phone = values.getAsString(LibraryContract.LibraryEntry.COL_PHONE);
+
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        // insert a person into the TPythonistas Table
+        long id = db.insert(LibraryContract.LibraryEntry.TPYTHONISTAS, null, values);
         if (id == -1){          // if the insertion failed
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
@@ -195,6 +237,10 @@ public class LibraryProvider extends ContentProvider {
                 return LibraryContract.LibraryEntry.CONTENT_LIST_TYPE;
             case BOOK_ID:
                 return LibraryContract.LibraryEntry.CONTENT_ITEM_TYPE;
+            case PYTHONISTAS:
+                return LibraryContract.LibraryEntry.PYTHONISTA_LIST_TYPE;
+            case PYTHONISTA_ID:
+                return LibraryContract.LibraryEntry.PYTHONISTA_ITEM_TYPE;
             default:
                 throw new IllegalStateException("Unkown UrI: " + uri + "with match: " + match);
         }

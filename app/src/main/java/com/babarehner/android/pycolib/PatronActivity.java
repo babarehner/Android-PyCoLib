@@ -1,7 +1,12 @@
 package com.babarehner.android.pycolib;
 
+import android.app.LoaderManager;
+import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,10 +15,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
-public class PatronActivity extends AppCompatActivity {
+public class PatronActivity extends AppCompatActivity implements
+        LoaderManager.LoaderCallbacks<Cursor> {
+
+    private static final int PYTHONISTA_LOADER = 0;
+    PythonistaCursorAdapter mCursorAdapterPythonista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +40,27 @@ public class PatronActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }) ;
+
+        ListView pythonistaListView = (ListView) findViewById(R.id.list_pythonista);
+        // have the patronListView display the empty view
+        View emptyView = findViewById(R.id.patron_empty_view);
+        pythonistaListView.setEmptyView(emptyView);
+
+        mCursorAdapterPythonista = new PythonistaCursorAdapter(this, null);
+        pythonistaListView.setAdapter(mCursorAdapterPythonista);
+
+        pythonistaListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(PatronActivity.this, PythonistaActivity.class);
+                Uri currentPythonistaUri = ContentUris.withAppendedId(
+                        LibraryContract.LibraryEntry.PYTHONISTA_URI, id);
+                intent.setData(currentPythonistaUri);
+                startActivity(intent);
+            }
+        });
+
+        getLoaderManager().initLoader(PYTHONISTA_LOADER, null, this);
 
     }
 
@@ -64,7 +96,7 @@ public class PatronActivity extends AppCompatActivity {
 
         //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
 
-        Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
+        Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.PYTHONISTA_URI, values);
     }
 
 
@@ -73,4 +105,27 @@ public class PatronActivity extends AppCompatActivity {
         Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
     }
 
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String[] projection = {LibraryContract.LibraryEntry._IDP,
+                LibraryContract.LibraryEntry.COL_F_NAME,
+                LibraryContract.LibraryEntry.COL_L_NAME};
+
+        return new CursorLoader(this,
+                LibraryContract.LibraryEntry.PYTHONISTA_URI,
+                projection,
+                null,
+                null,
+                null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mCursorAdapterPythonista.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        mCursorAdapterPythonista.swapCursor(null);
+    }
 }
