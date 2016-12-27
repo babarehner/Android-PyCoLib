@@ -31,8 +31,8 @@ import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.L
 public class BookActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     public static final int EXISTING_BOOK_LOADER = 0;
-
     private Uri mCurrentLibraryUri = null;
+    private Uri mCurrentBookUri;
 
     private EditText mTitleEditText;
     private EditText mAuthorEditText;
@@ -40,8 +40,6 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     private EditText mBorrowerEditText;
 
     private int mPublishYear;
-
-    private Uri mCurrentBookUri;        // Uri for the current book item
 
     private boolean mBookChanged = false;   // When edit change made to a book row
 
@@ -62,8 +60,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         Intent intent = getIntent();
         mCurrentBookUri = intent.getData();
 
-        // Idf the intent does not contain an single item Uri
-        // FAB clicked
+        // Idf the intent does not contain an single item Uri FAB clicked
         if (mCurrentBookUri == null){
             // set page header to add book
             setTitle(getString(R.string.book_activity_title_add_book));
@@ -297,20 +294,21 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onBackPressed() {
         if (!mBookChanged) {
             super.onBackPressed();
+            return;
         }
-            //otherwise if there are unsaved changes setup a dialog to warn the  user
-            //handles the user confirming that changes should be made
-            DialogInterface.OnClickListener discardButtonClickListener =
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int i) {
-                            // user clicked "Discard" button, close the current activity
-                            finish();
-                        }
-                    };
+        //otherwise if there are unsaved changes setup a dialog to warn the  user
+        //handles the user confirming that changes should be made
+        DialogInterface.OnClickListener discardButtonClickListener =
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        // user clicked "Discard" button, close the current activity
+                        finish();
+                    }
+                };
 
-            // show dialog that there are unsaved changes
-            showUnsavedChangesDialog(discardButtonClickListener);
+        // show dialog that there are unsaved changes
+        showUnsavedChangesDialog(discardButtonClickListener);
     }
 
 

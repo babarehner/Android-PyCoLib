@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -21,8 +22,13 @@ import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
-public class PythonistaActivity extends AppCompatActivity implements
-        LoaderManager.LoaderCallbacks<Cursor> {
+
+
+
+
+
+
+public class PythonistaActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final int EXISTING_PYTHONISTA_LOADER = 1;
     private Uri mCurrentPatronsUri;
@@ -33,13 +39,15 @@ public class PythonistaActivity extends AppCompatActivity implements
     private EditText mEMailET;
     private EditText mPhoneET;
 
+
+
     private boolean mPythonistaChanged = false;
 
     // Touch listener check if changes made to a pythonista
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            mPythonistaChanged = false;
+            mPythonistaChanged = true;
             return false;
         }
     };
@@ -59,6 +67,7 @@ public class PythonistaActivity extends AppCompatActivity implements
             invalidateOptionsMenu();
         } else {
             setTitle(getString(R.string.patron_activity_title_edit_pythonista));
+            getLoaderManager().initLoader(EXISTING_PYTHONISTA_LOADER, null, PythonistaActivity.this);
         }
 
         //Find all input views to read from
@@ -90,7 +99,7 @@ public class PythonistaActivity extends AppCompatActivity implements
                 return true;
             case R.id.action_delete:
                 // Alert Dialog for deleting one book
-                // TODO showDeleteConfirmationDialog();
+                showDeleteConfirmationDialog();
                 return true;
             // this is the <- button on the header
             case android.R.id.home:
@@ -109,10 +118,21 @@ public class PythonistaActivity extends AppCompatActivity implements
                             }
                         };
                 // show user they have unsaved changes
-                // TODO showUnsavedChangesDialog(discardButtonClickListener);
+                showUnsavedChangesDialog(discardButtonClickListener);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // hide delete menu item when adding a pythonista
+    @Override
+    public boolean onPrepareOptionsMenu(Menu m){
+        super.onPrepareOptionsMenu(m);
+        if (mCurrentPythonistaUri == null){
+            MenuItem menuItem = m.findItem(R.id.action_delete);
+            menuItem.setVisible(false);
+        }
+        return true;
     }
 
     private void savePythonista(){
@@ -125,14 +145,14 @@ public class PythonistaActivity extends AppCompatActivity implements
         if (mCurrentPythonistaUri == null && (TextUtils.isEmpty(fNameStr) || TextUtils.isEmpty(lNameStr))) {
             Toast.makeText(this, getString(R.string.missing_first_last_name),
                     Toast.LENGTH_SHORT).show();
-                    return;
+            return;
         }
 
         ContentValues values = new ContentValues();
         values.put(LibraryContract.LibraryEntry.COL_F_NAME, fNameStr);
-        values.put(LibraryContract.LibraryEntry.COL_F_NAME, lNameStr);
-        values.put(LibraryContract.LibraryEntry.COL_F_NAME, eMailStr);
-        values.put(LibraryContract.LibraryEntry.COL_F_NAME, phoneStr);
+        values.put(LibraryContract.LibraryEntry.COL_L_NAME, lNameStr);
+        values.put(LibraryContract.LibraryEntry.COL_EMAIL, eMailStr);
+        values.put(LibraryContract.LibraryEntry.COL_PHONE, phoneStr);
 
         if (mCurrentPythonistaUri == null) {
             // a new book
@@ -154,6 +174,52 @@ public class PythonistaActivity extends AppCompatActivity implements
                         Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void showDeleteConfirmationDialog() {
+        // Create and AlertDialog.Builder, set message and click
+        // listeners for positive and negative buttons
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.delete_dialog_pythonista_msg);
+        builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // User clicked delet so delete
+                deletePythonista();
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked cancel, dismiss dialog, continue editing
+                if (dialog != null) {dialog.dismiss();}
+            }
+        });
+        // Create and show dialog
+        AlertDialog alertD = builder.create();
+        alertD.show();
+    }
+
+
+
+    //
+    private void showUnsavedChangesDialog(DialogInterface.OnClickListener discardButtonClickListener){
+        // Create AlertDialogue.Builder amd set message and click listeners
+        // for positive and negative buttons in dialogue.
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.unsaved_changes_dialog_msg);
+        builder.setPositiveButton(R.string.discard, discardButtonClickListener);
+        builder.setNegativeButton(R.string.keep_editing, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                // user clicked the "keep eiditing" button. Dismiss dialog and keep editing
+                if (dialog != null) {dialog.dismiss();
+                }
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
     @Override
@@ -196,6 +262,41 @@ public class PythonistaActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    public void onBackPressed(){
+        if (mPythonistaChanged) {
+            super.onBackPressed();
+            return;
+        }
+        //otherwise if there are unsaved changes setup a dialog to warn the  user
+        //handles the user confirming that changes should be made
+        DialogInterface.OnClickListener discardButtonClickListener =
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        // user clicked "Discard" button, close the current activity
+                        finish();
+                    }
+                };
 
+        // show dialog that there are unsaved changes
+        showUnsavedChangesDialog(discardButtonClickListener);
+
+    }
+
+    // delete pythjonista from db
+    private void deletePythonista(){
+        if (mCurrentPythonistaUri != null) {
+            int rowsDeleted = getContentResolver().delete(mCurrentPythonistaUri, null, null);
+            if (rowsDeleted == 0) {
+                Toast.makeText(this, getString(R.string.delete_pythonista_failure),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.delete_pythonista_failure),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+        finish();
+    }
 
 }

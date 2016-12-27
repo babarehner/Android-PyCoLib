@@ -43,7 +43,7 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="delete_dialog_msg">Delete this book</string>
-    <string name="delete_book_successful"> Booke deleted</string>
+    <string name="delete_book_successful"> Book deleted</string>
     <string name="delete_book_failure">Book not deleted (Error)</string>
 
     <!-- in PatronActivity -->
@@ -65,4 +65,8 @@
     <string name="pythonista_provider_insert_pythonista_good">Pythonista Successfully Added</string>
     <string name="edit_update_pythonista_failed">Update Pythonista Failed</string>
     <string name="edit_update_pythonista_success">Update Pythonista Successful</string>
+    <!-- Delete alert dialog for pythonistas -->
+    <string name="delete_dialog_pythonista_msg">Delete this Pythonista</string>
+    <string name="delete_pythonista_successful"> Pythonista deleted</string>
+    <string name="delete_pythonista_failure">Pythonista not deleted (Error)</string>
 </resources>

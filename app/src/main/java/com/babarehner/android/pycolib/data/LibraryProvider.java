@@ -132,14 +132,14 @@ public class LibraryProvider extends ContentProvider {
         return ContentUris.withAppendedId(uri,id);
     }
 
-    //Insert a book into the books table with the given content values. Return the new conntent URI
+    //Insert a pythonista into the pythonista table with the given content values. Return the new conntent URI
     //for that specific row inthe  database
     private Uri insertPythonista(Uri uri, ContentValues values){
         // Check that the  name is not null
         String fName = values.getAsString(LibraryContract.LibraryEntry.COL_F_NAME);
         String lName = values.getAsString(LibraryContract.LibraryEntry.COL_L_NAME);
         if (fName == null || lName == null){
-            throw new IllegalArgumentException("First or Last Name Required!");
+            throw new IllegalArgumentException("First and Last Name Required! #142");
         }
 
         String eMail = values.getAsString(LibraryContract.LibraryEntry.COL_EMAIL);
@@ -171,6 +171,12 @@ public class LibraryProvider extends ContentProvider {
                 selection = LibraryContract.LibraryEntry._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri))};
                 return updateBook(uri, values, selection, selectionArgs);
+            case PYTHONISTAS:
+                return updatePythonista(uri, values, selection, selectionArgs);
+            case PYTHONISTA_ID:
+                selection = LibraryContract.LibraryEntry._IDP + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return updatePythonista(uri, values, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException("Update is not supported for: " + uri);
         }
@@ -180,7 +186,6 @@ public class LibraryProvider extends ContentProvider {
 
         // if there are no values to update, quit!
         if (values.size() == 0){return 0;}
-
         // check that the Title value is not empty
         if (values.containsKey(LibraryContract.LibraryEntry.COL_TITLE)){
             String title = values.getAsString(LibraryContract.LibraryEntry.COL_TITLE);
@@ -193,6 +198,34 @@ public class LibraryProvider extends ContentProvider {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         int rowsUpdated = db.update(LibraryContract.LibraryEntry.TBOOKS, values, selection, selectionArgs);
+        if (rowsUpdated != 0){
+            // Notify all listeners that the data has changed
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        // returns the # of db rows affected by theupdate statement
+        return rowsUpdated;
+    }
+
+    private int updatePythonista(Uri uri, ContentValues values, String selection, String[] selectionArgs){
+        // if there are no values to update, quit!
+        if (values.size() == 0){return 0;}
+
+        // check that the first and last name values are not empty
+        if (values.containsKey(LibraryContract.LibraryEntry.COL_F_NAME)) {
+            String fName = values.getAsString(LibraryContract.LibraryEntry.COL_F_NAME);
+            if (fName == null) {
+                throw new IllegalArgumentException("Pythonista requires a first name #218");
+            }
+        }
+        if (values.containsKey(LibraryContract.LibraryEntry.COL_L_NAME)) {
+            String lName = values.getAsString(LibraryContract.LibraryEntry.COL_L_NAME);
+            if (lName == null)
+                throw new IllegalArgumentException("Pythonista requires a last name! #224");
+        }
+
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        int rowsUpdated = db.update(LibraryContract.LibraryEntry.TPYTHONISTAS, values, selection, selectionArgs);
         if (rowsUpdated != 0){
             // Notify all listeners that the data has changed
             getContext().getContentResolver().notifyChange(uri, null);
