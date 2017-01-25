@@ -26,6 +26,5 @@
     <TextView
         android:id="@+id/checkout_page"
         style="@style/main_page"
-        android:text="Check Out and Check In"
-        />
+        android:text="Check Out and Check In" />
 </LinearLayout>

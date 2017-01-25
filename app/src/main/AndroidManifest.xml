@@ -45,15 +45,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".PythonistaActivity"
             android:parentActivityName=".PatronActivity"
             android:theme="@style/BookTheme">
+
             <!-- Parent activity metadata to support Android 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PatronActivity"/>
+                android:value=".PatronActivity" />
+        </activity>
+
+        <activity android:name=".CheckOutActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/BookTheme">
+            <!-- Parent activity metadata to support Android 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
         </activity>
 
         <provider
@@ -61,10 +70,7 @@
             android:authorities="com.babarehner.android.pycolib"
             android:exported="false" />
 
+
     </application>
-
-
-
-
 
 </manifest>

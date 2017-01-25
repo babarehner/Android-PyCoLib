@@ -7,14 +7,10 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,11 +32,14 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        // Changes the title bar text color. Need to hunt down a way to use findByID(T.id.color)
-        String title = "PyCoLib";
-        SpannableString s = new SpannableString(title);
-        s.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        getSupportActionBar().setTitle(s);
+        setTitle("Books");
+
+        /** Changes the title bar text color. Need to hunt down a way to use findByID(T.id.color)
+        * String title = "PyCoLib";
+        * SpannableString s = new SpannableString(title);
+        * s.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        * getSupportActionBar().setTitle(s);
+        **/
 
         // Create a floating action button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

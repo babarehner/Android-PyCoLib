@@ -31,6 +31,8 @@ public class PatronActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patron);
 
+        setTitle("Pythonistas");
+
         // Create a floating action button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_patron);
         fab.setOnClickListener(new View.OnClickListener() {

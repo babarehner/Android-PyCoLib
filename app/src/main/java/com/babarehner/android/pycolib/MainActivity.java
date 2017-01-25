@@ -32,5 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(patronIntent);
             }
         });
+
+        TextView checkOut = (TextView) findViewById(R.id.checkout_page);
+        checkOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent checkOutIntent = new Intent(MainActivity.this, CheckOutActivity.class);
+                startActivity(checkOutIntent);
+            }
+        });
     }
 }
