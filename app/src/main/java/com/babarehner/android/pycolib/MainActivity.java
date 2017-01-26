@@ -41,5 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(checkOutIntent);
             }
         });
+
+        TextView checkIn = (TextView) findViewById(R.id.checkin_page);
+        checkIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent checkInIntent = new Intent(MainActivity.this, CheckInActivity.class);
+                startActivity(checkInIntent);
+            }
+        });
     }
 }

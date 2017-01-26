@@ -26,5 +26,11 @@
     <TextView
         android:id="@+id/checkout_page"
         style="@style/main_page"
-        android:text="Check Out and Check In" />
+        android:text="Check Out Book" />
+
+    <TextView
+        android:id="@+id/checkin_page"
+        style="@style/main_page"
+        android:text="Check In Book" />
+
 </LinearLayout>

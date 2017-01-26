@@ -18,9 +18,9 @@ public class CheckOutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
 
-        setTitle("Check Out/ Check In");
+        setTitle("Check Out Book");
 
-        s = (Spinner) findViewById(R.id.name_spinner);
+        s = (Spinner) findViewById(R.id.name_co_spinner);
         LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
         List<String> names_list = db.getNames();
 
@@ -29,7 +29,7 @@ public class CheckOutActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(dataAdapter);
 
-        b = (Spinner) findViewById(R.id.book_spinner);
+        b = (Spinner) findViewById(R.id.book_co_spinner);
         LibraryDbHelper db2 = new LibraryDbHelper(getApplicationContext());
         List<String> titles_list = db2.getBooks();
 

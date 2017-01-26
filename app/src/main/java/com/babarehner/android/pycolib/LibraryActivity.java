@@ -113,10 +113,21 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
         values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
-
-        //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
-
         Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
+
+        ContentValues values2 = new ContentValues();
+        values2.put(LibraryContract.LibraryEntry.COL_TITLE, "Flask Web Development");
+        values2.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Miguel Ginberg");
+        values2.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2014");
+        values2.put(LibraryContract.LibraryEntry.COL_BORROWER, "");
+        Uri uri2 = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values2);
+
+        ContentValues values3 = new ContentValues();
+        values3.put(LibraryContract.LibraryEntry.COL_TITLE, "Learning Python 3rd Ed");
+        values3.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Mark Lutz");
+        values3.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2007");
+        values3.put(LibraryContract.LibraryEntry.COL_BORROWER, "");
+        Uri uri3 = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values3);
     }
 
 
