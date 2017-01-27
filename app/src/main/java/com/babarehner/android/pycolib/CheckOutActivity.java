@@ -62,7 +62,7 @@ public class CheckOutActivity extends AppCompatActivity {
     }
 
     public void setCurrentDateOnView() {
-        tvDisplayDate = (TextView) findViewById(R.id.tvDate);
+        tvDisplayDate = (TextView) findViewById(R.id.tvCODate);
         // dpResult = (DatePicker) findViewById(R.id.dpResult);
 
         final Calendar c = Calendar.getInstance();
