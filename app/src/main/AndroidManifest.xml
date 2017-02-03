@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.babarehner.android.pycolib">
 
+    <!-- Where should uses-permission go in manifest file?? -->
+    <uses-permisssion
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -81,7 +85,6 @@
             android:name=".data.LibraryProvider"
             android:authorities="com.babarehner.android.pycolib"
             android:exported="false" />
-
 
     </application>
 

@@ -10,7 +10,7 @@ Getting Started with Arduino, ,
 Gray Hat Python, ,
 Guide to Numpy, ,
 Introducing Python, ,
-Land of LIsp, Conrad Barski, 2011
+Land of Lisp, Conrad Barski, 2011
 Learning Python 3rd Ed., Mark Lutz, 2007
 Learning Python 4th Ed., ,
 Learning Python 5th Ed., ,

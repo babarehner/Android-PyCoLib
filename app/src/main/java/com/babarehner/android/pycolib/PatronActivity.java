@@ -9,6 +9,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class PatronActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
@@ -87,18 +93,59 @@ public class PatronActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
+
+    // Checks if external storage is available for read
+    public boolean isExternalStorageReadable(){
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+
      // inserts a row of test data into SQL table db
     private void insertTestDataPythonista() {
 
+        BufferedReader br;
+
+        //AssetManager am = getAssets();
+        //final InputStream is = am.open("library.txt");
+        // File pythonistas.txt is not uploaded to GitHub- user data held back
+        try{
+            final InputStream file = getAssets().open("pythonistas.txt");
+            br = new BufferedReader(new InputStreamReader(file));
+            String line = br.readLine();
+            while(line != null){
+                Log.d("Show Pythonistas", line);
+                // -1 used to deal with empty values in csv file
+                String[] stuff = line.split(",", -1);
+                for (int i=0; i<4; i++){
+                    Log.d( "stuff", stuff[i] +"\n");
+                }
+                ContentValues values = new ContentValues();
+                values.put(LibraryContract.LibraryEntry.COL_L_NAME, stuff[0]);
+                values.put(LibraryContract.LibraryEntry.COL_F_NAME, stuff[1]);
+                values.put(LibraryContract.LibraryEntry.COL_PHONE, stuff[2]);
+                values.put(LibraryContract.LibraryEntry.COL_EMAIL, stuff[3]);
+                Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.PYTHONISTA_URI, values);
+
+                line = br.readLine();
+            }
+
+
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+        /*
         ContentValues values = new ContentValues();
         values.put(LibraryContract.LibraryEntry.COL_F_NAME, "Mike");
         values.put(LibraryContract.LibraryEntry.COL_L_NAME, "Rehner");
         values.put(LibraryContract.LibraryEntry.COL_EMAIL, "mrehner@e-wrench.net");
         values.put(LibraryContract.LibraryEntry.COL_PHONE, "614 477 6537");
-
+        */
         //Log.v("LibraryActivity", "New Rows ID "+ newRowId);
 
-        Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.PYTHONISTA_URI, values);
+        //Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.PYTHONISTA_URI, values);
     }
 
 
