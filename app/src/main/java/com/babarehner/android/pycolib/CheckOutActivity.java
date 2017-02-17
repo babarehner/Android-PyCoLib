@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -15,6 +16,7 @@ import com.babarehner.android.pycolib.data.LibraryDbHelper;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CheckOutActivity extends AppCompatActivity {
 
@@ -30,6 +32,8 @@ public class CheckOutActivity extends AppCompatActivity {
     private int day;
 
     static final int DATE_DIALOG_ID = 999;
+
+    String[] nameID, bookID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,21 @@ public class CheckOutActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(dataAdapter);
 
+        s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                //Log.v("name ", (String) parent.getItemAtPosition(pos));
+                String name = (String) parent.getItemAtPosition(pos);
+                // nameID[0] returns the primary key ID of a pythonista
+                nameID = name.split(Pattern.quote("."));
+                //Log.v("nameID ", nameID[0]);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
         b = (Spinner) findViewById(R.id.book_co_spinner);
         LibraryDbHelper db2 = new LibraryDbHelper(getApplicationContext());
         List<String> titles_list = db2.getBooks();
@@ -56,9 +75,32 @@ public class CheckOutActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         b.setAdapter(dataAdapter2);
 
+        b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                //Log.d("book", (String) parent.getItemAtPosition(pos));
+                String book = (String) parent.getItemAtPosition(pos);
+                bookID = book.split(Pattern.quote("."));
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
         addListenerButton();
         setCurrentDateOnView();
+    }
 
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+    }
+
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
     }
 
     public void setCurrentDateOnView() {

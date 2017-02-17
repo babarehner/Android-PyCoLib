@@ -79,7 +79,7 @@ public final class LibraryContract {
         // Primary key to be autoincremented. I believe this is a
         // required name for some Android APIs
         // Names for columns on TBooks table
-        public static final String _ID = BaseColumns._ID;
+        public static final String _IDB = BaseColumns._ID;
         public static final String COL_TITLE= "Title";
         public static final String COL_AUTHOR= "Author";
         public static final String COL_YEAR_PUBLISHED = "YearPublished";

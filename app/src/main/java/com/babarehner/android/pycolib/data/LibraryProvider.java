@@ -63,7 +63,7 @@ public class LibraryProvider extends ContentProvider {
                         selectionArgs, null, null, sortOrder);
                 break;
             case BOOK_ID:
-                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selection = LibraryContract.LibraryEntry._IDB + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
                 c = db.query(LibraryContract.LibraryEntry.TBOOKS, projection, selection,
                         selectionArgs, null, null, sortOrder);
@@ -168,7 +168,7 @@ public class LibraryProvider extends ContentProvider {
             case BOOKS:
                 return updateBook(uri, values, selection, selectionArgs);
             case BOOK_ID:
-                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selection = LibraryContract.LibraryEntry._IDB + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri))};
                 return updateBook(uri, values, selection, selectionArgs);
             case PYTHONISTAS:
@@ -247,7 +247,7 @@ public class LibraryProvider extends ContentProvider {
                 break;
             case BOOK_ID:
                 // Delete a single row fiven by the ID in the URI
-                selection = LibraryContract.LibraryEntry._ID + "=?";
+                selection = LibraryContract.LibraryEntry._IDB + "=?";
                 selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = db.delete(LibraryContract.LibraryEntry.TBOOKS, selection, selectionArgs);
                 break;

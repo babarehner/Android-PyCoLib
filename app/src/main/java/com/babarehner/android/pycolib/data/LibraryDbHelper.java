@@ -11,10 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_F_NAME;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_LOAN_DATE;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_L_NAME;
-import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_RETURN_DATE;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE_ID;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TLOANED;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TPYTHONISTAS;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._IDB;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._IDL;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry._IDP;
 
 /**
  * Created by mike on 11/25/16.
@@ -37,7 +43,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String SQL_CREATE_BOOKS_TABLE = "CREATE TABLE " + TBOOKS
                 + "("
-                + LibraryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + _IDB + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + LibraryEntry.COL_TITLE + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_AUTHOR + " TEXT, "
                 + LibraryEntry.COL_YEAR_PUBLISHED + " INTEGER, "
@@ -46,19 +52,19 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
 
         String SQL_CREATE_PYTHONISTAS_TABLE = "CREATE TABLE " + TPYTHONISTAS
                 + "("
-                + LibraryEntry._IDP + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + _IDP + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_F_NAME + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_L_NAME + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_PHONE + " TEXT, "
                 + LibraryEntry.COL_EMAIL + " TEXT);";
 
-        String SQL_CREATE_LOAN_TABLE = "CREATE TABLE " + LibraryEntry.TLOANED
+        String SQL_CREATE_LOAN_TABLE = "CREATE TABLE " + TLOANED
                 + "("
-                + LibraryEntry._IDL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + LibraryEntry.COL_TITLE_ID + " LONG NOT NULL, "
+                + _IDL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL_TITLE_ID + " LONG NOT NULL, "
                 + LibraryEntry.COL_NAME_ID + " LONG NOT NULL, "
-                + LibraryEntry.COL_LOAN_DATE + " DATE NOT NULL, "
-                + LibraryEntry.COL_RETURN_DATE + " DATE);";
+                + COL_LOAN_DATE + " DATE NOT NULL, "
+                + COL_RETURN_DATE + " DATE);";
 
 
         db.execSQL(SQL_CREATE_BOOKS_TABLE);
@@ -73,13 +79,13 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     // get data for name spinner
     public List<String > getNames(){
         List<String> names = new ArrayList<String>();
-        String fNameQuery = "SELECT " + COL_F_NAME + "," + COL_L_NAME + " FROM " + TPYTHONISTAS + " ;";
+        String fNameQuery = "SELECT " + _IDP + "," + COL_F_NAME + "," + COL_L_NAME + " FROM " + TPYTHONISTAS + " ;";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(fNameQuery, null);
         String name;
         if (c.moveToFirst()) {
             do {
-                name = c.getString(1) + ", " + c.getString(0);
+                name = c.getString(0) + ". " + c.getString(2) + ", " + c.getString(1);
                 names.add(name);
             } while (c.moveToNext());
         }
@@ -91,12 +97,17 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     // get data for book spinner
     public List<String > getBooks(){
         List<String> titles = new ArrayList<String>();
-        String fNameQuery = "SELECT " + COL_TITLE + " FROM " + TBOOKS + " ;";
+        // Two __ID s. Next time select a different _ID string, This is used in BaseColumns & is confusing
+        //String fNameQuery = "SELECT " + _IDB + ", " + COL_TITLE + " FROM " + TBOOKS + " ;";
+        String fNameQuery = "SELECT " + " TBooks._id"  + ", " + "TBooks.Title " + " FROM " + TBOOKS + " LEFT OUTER JOIN "
+                + TLOANED + " ON " + " TLoaned._id "+ " = TBooks." + COL_TITLE_ID + " WHERE " + COL_LOAN_DATE + " IS NULL "
+                + " OR " + COL_RETURN_DATE + " IS NOT NULL;";
+        // Above coudl be written in straight SQL using a text string!!
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(fNameQuery, null);
         if (c.moveToFirst()) {
             do {
-                titles.add(c.getString(0));
+                titles.add(c.getString(0) + ". " + c.getString(1));
             } while (c.moveToNext());
         }
         c.close();
