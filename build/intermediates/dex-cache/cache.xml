@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="83f23ccd586cab25b9802103874ca62be8d6560e">
+        sha1="0c92c68a7b6f2b4aff7b9097553c99031a3d32d8">
         <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_063d45d05fb236fae3705fc137ca5fd980e525ae/classes.dex" />
     </item>
     <item
@@ -142,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="6f1c1aced7a455cfe48e46146f0f670472995712">
+        sha1="4d2c87c9b91d3ee5abb932b511735ac2a412cebe">
         <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_fe758be044a8fdf6340eb07c28850c5605bca26d/classes.dex" />
     </item>
     <item

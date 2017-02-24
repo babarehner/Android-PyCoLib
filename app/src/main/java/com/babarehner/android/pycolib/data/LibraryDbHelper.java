@@ -1,9 +1,11 @@
 package com.babarehner.android.pycolib.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry;
 
@@ -13,6 +15,7 @@ import java.util.List;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_F_NAME;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_LOAN_DATE;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_L_NAME;
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_NAME_ID;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_RETURN_DATE;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE_ID;
 import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.TBOOKS;
@@ -58,12 +61,13 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
                 + LibraryEntry.COL_PHONE + " TEXT, "
                 + LibraryEntry.COL_EMAIL + " TEXT);";
 
+        // Table generates a default loan_date from inside SQLite
         String SQL_CREATE_LOAN_TABLE = "CREATE TABLE " + TLOANED
                 + "("
                 + _IDL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL_TITLE_ID + " LONG NOT NULL, "
-                + LibraryEntry.COL_NAME_ID + " LONG NOT NULL, "
-                + COL_LOAN_DATE + " DATE NOT NULL, "
+                + COL_TITLE_ID + " INTEGER NOT NULL, "
+                + COL_NAME_ID + " IMTEGER NOT NULL, "
+                + COL_LOAN_DATE + " DATE NOT NULL default current_date, "
                 + COL_RETURN_DATE + " DATE);";
 
 
@@ -99,12 +103,12 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         List<String> titles = new ArrayList<String>();
         // Two __ID s. Next time select a different _ID string, This is used in BaseColumns & is confusing
         //String fNameQuery = "SELECT " + _IDB + ", " + COL_TITLE + " FROM " + TBOOKS + " ;";
-        String fNameQuery = "SELECT " + " TBooks._id"  + ", " + "TBooks.Title " + " FROM " + TBOOKS + " LEFT OUTER JOIN "
-                + TLOANED + " ON " + " TLoaned._id "+ " = TBooks." + COL_TITLE_ID + " WHERE " + COL_LOAN_DATE + " IS NULL "
-                + " OR " + COL_RETURN_DATE + " IS NOT NULL;";
-        // Above coudl be written in straight SQL using a text string!!
+        // Need to check this SQL further when I fill out the ReturnDate to see if still correct
+        String fBookQuery = "Select T._id, T.Title, L.TitleID, L.LoanDate, L.ReturnDate " +
+                " FROM TBooks T LEFT OUTER JOIN TLoaned L on T._id = L.TitleID " +
+                " Where NOT (LoanDate IS NOT NULL AND ReturnDate IS NULL); ";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(fNameQuery, null);
+        Cursor c = db.rawQuery(fBookQuery, null);
         if (c.moveToFirst()) {
             do {
                 titles.add(c.getString(0) + ". " + c.getString(1));
@@ -113,6 +117,23 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return titles;
+    }
+
+
+    public void checkOutBook(int bookID, int pythonistaID ){
+
+        ContentValues values = new ContentValues();
+        values.put(COL_TITLE_ID, bookID);
+        values.put(COL_NAME_ID, pythonistaID);
+
+        //values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
+
+        String checkOut = "Insert into TLoaned values (null," + bookID + ", "
+                + pythonistaID  + ");";
+        SQLiteDatabase db = this.getWritableDatabase();
+        long rowId = db.insert(TLOANED, null, values );
+        Log.v("rowID", Long.toString(rowId));
+
     }
 
 

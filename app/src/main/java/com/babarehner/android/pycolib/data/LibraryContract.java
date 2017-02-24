@@ -99,7 +99,7 @@ public final class LibraryContract {
 
         public static final String TLOANED = "TLoaned";
         public static final String _IDL = BaseColumns._ID;
-        public static final String COL_TITLE_ID = "Title";
+        public static final String COL_TITLE_ID = "TitleID";
         public static final String COL_NAME_ID = "Name";
         public static final String COL_LOAN_DATE = "LoanDate";
         public static final String  COL_RETURN_DATE = "ReturnDate";

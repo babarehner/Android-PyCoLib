@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -58,7 +59,7 @@ public class CheckOutActivity extends AppCompatActivity {
                 String name = (String) parent.getItemAtPosition(pos);
                 // nameID[0] returns the primary key ID of a pythonista
                 nameID = name.split(Pattern.quote("."));
-                //Log.v("nameID ", nameID[0]);
+                Log.v("nameID = ", nameID[0]);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -81,14 +82,19 @@ public class CheckOutActivity extends AppCompatActivity {
                 //Log.d("book", (String) parent.getItemAtPosition(pos));
                 String book = (String) parent.getItemAtPosition(pos);
                 bookID = book.split(Pattern.quote("."));
+                Log.v("bookID = ", bookID[0]);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
+        // Date Listener
         addListenerButton();
         setCurrentDateOnView();
+
+        //LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
+        //db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]));
     }
 
 
@@ -117,6 +123,7 @@ public class CheckOutActivity extends AppCompatActivity {
             .append(month + 1).append("-").append(day).append("-")
             .append(year).append(" "));
 
+
         // set current date into datepicker
         // dpResult.init(year, month, day, null);
     }
@@ -129,6 +136,8 @@ public class CheckOutActivity extends AppCompatActivity {
                 showDialog(DATE_DIALOG_ID);
             }
         });
+
+
     }
 
     @Override
@@ -155,6 +164,9 @@ public class CheckOutActivity extends AppCompatActivity {
                     .append("-").append(day).append("-").append(year)
                     .append(" "));
 
+            // After clicking on date, this is sent to update the Tloaned Table
+            LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
+            db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]));
             // dpResult.init(year, month, day, null);
         }
     };
