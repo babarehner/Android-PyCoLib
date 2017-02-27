@@ -82,13 +82,14 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
 
     // get data for name spinner
     public List<String > getNames(){
-        List<String> names = new ArrayList<String>();
+        List<String> names = new ArrayList<>();
         String fNameQuery = "SELECT " + _IDP + "," + COL_F_NAME + "," + COL_L_NAME + " FROM " + TPYTHONISTAS + " ;";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(fNameQuery, null);
         String name;
         if (c.moveToFirst()) {
             do {
+                // put together NameID#, period, Lastname, Firstname
                 name = c.getString(0) + ". " + c.getString(2) + ", " + c.getString(1);
                 names.add(name);
             } while (c.moveToNext());
@@ -100,7 +101,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
 
     // get data for book spinner
     public List<String > getBooks(){
-        List<String> titles = new ArrayList<String>();
+        List<String> titles = new ArrayList<>();
         // Two __ID s. Next time select a different _ID string, This is used in BaseColumns & is confusing
         //String fNameQuery = "SELECT " + _IDB + ", " + COL_TITLE + " FROM " + TBOOKS + " ;";
         // Need to check this SQL further when I fill out the ReturnDate to see if still correct
@@ -134,6 +135,50 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         long rowId = db.insert(TLOANED, null, values );
         Log.v("rowID", Long.toString(rowId));
 
+    }
+
+    public List<String> getCheckOutBooks(){
+        List<String> titles = new ArrayList<>();
+        String gCOBooks = "Select L._id, B.Title, L.TitleID, L.LoanDate, L.ReturnDate, B._id " +
+                "FROM TLoaned L LEFT OUTER JOIN (SELECT TBooks._id, TBooks.Title FROM TBooks) B " +
+                "ON L.TitleID = B._id WHERE (L.LoanDate IS NOT NULL AND L.ReturnDate IS NULL);";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(gCOBooks, null);
+        if (c.moveToFirst()) {
+            do {
+                titles.add(c.getString(0) + ". " + c.getString(1));
+            } while (c.moveToNext());
+        }
+        c.close();
+        db.close();
+        return titles;
+    }
+
+    public String getPythonistaName(int loanedRowID){
+        List<String> pythonistaName = new ArrayList<>();
+        String fName = "SELECT P.FirstName, P.LastName, P._id,  L._id, L.Name From TPythonistas P " +
+                " LEFT OUTER JOIN (Select TLoaned.Name, TLoaned._id FROM TLoaned WHERE TLoaned._id = " +
+                loanedRowID + " ) L WHERE L.Name = P._id;";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(fName, null);
+        if (c.moveToFirst()){
+            do {
+                pythonistaName.add(c.getString(0) + " " + c.getString(1));
+            } while (c.moveToNext());
+        }
+        c.close();
+        db.close();
+
+        // Correct syntax to get a string value out of a Generic ArrayList
+        String s =  pythonistaName.get(0);
+        return s;
+    }
+
+    public void updateReturnDate(int id, String date){
+        String q = "UPDATE TLoaned SET ReturnDate = '" + date + "' where _id = '" + id + "' ;";
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(q);
+        db.close();
     }
 
 

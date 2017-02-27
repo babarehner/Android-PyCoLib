@@ -223,7 +223,9 @@ public class LibraryProvider extends ContentProvider {
                 throw new IllegalArgumentException("Pythonista requires a last name! #224");
         }
 
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        // 2/27/17 changed "getReadable" to "getWriteable" did not notice any errors in testing but
+        // updates are writeable!!!
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
         int rowsUpdated = db.update(LibraryContract.LibraryEntry.TPYTHONISTAS, values, selection, selectionArgs);
         if (rowsUpdated != 0){
