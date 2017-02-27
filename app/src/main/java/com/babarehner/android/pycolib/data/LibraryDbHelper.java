@@ -121,16 +121,17 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     }
 
 
-    public void checkOutBook(int bookID, int pythonistaID ){
+    public void checkOutBook(int bookID, int pythonistaID, String date){
 
         ContentValues values = new ContentValues();
         values.put(COL_TITLE_ID, bookID);
         values.put(COL_NAME_ID, pythonistaID);
+        values.put(COL_LOAN_DATE, date);
 
         //values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
 
         String checkOut = "Insert into TLoaned values (null," + bookID + ", "
-                + pythonistaID  + ");";
+                + pythonistaID  + ", " + date + ");";
         SQLiteDatabase db = this.getWritableDatabase();
         long rowId = db.insert(TLOANED, null, values );
         Log.v("rowID", Long.toString(rowId));
@@ -175,9 +176,9 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     }
 
     public void updateReturnDate(int id, String date){
-        String q = "UPDATE TLoaned SET ReturnDate = '" + date + "' where _id = '" + id + "' ;";
+        String strSQL = "UPDATE TLoaned SET ReturnDate = '" + date + "' where _id = '" + id + "' ;";
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL(q);
+        db.execSQL(strSQL);
         db.close();
     }
 

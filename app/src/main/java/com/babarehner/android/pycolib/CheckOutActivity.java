@@ -123,9 +123,6 @@ public class CheckOutActivity extends AppCompatActivity {
             .append(month + 1).append("-").append(day).append("-")
             .append(year).append(" "));
 
-
-        // set current date into datepicker
-        // dpResult.init(year, month, day, null);
     }
 
     public void addListenerButton() {
@@ -159,14 +156,15 @@ public class CheckOutActivity extends AppCompatActivity {
             month = selectedMonth;
             day = selectedDay;
 
+            StringBuilder sb = new StringBuilder().append(year)
+                    .append("-").append(month + 1).append("-").append(day);
+
             // set selected date into textview
-            tvDisplayDate.setText(new StringBuilder().append(month + 1)
-                    .append("-").append(day).append("-").append(year)
-                    .append(" "));
+            tvDisplayDate.setText(sb);
 
             // After clicking on date, this is sent to update the Tloaned Table
             LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
-            db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]));
+            db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]), sb.toString());
             // dpResult.init(year, month, day, null);
         }
     };
