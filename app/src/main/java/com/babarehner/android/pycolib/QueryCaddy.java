@@ -13,7 +13,7 @@ public class QueryCaddy {
     private String phoneNo;
     private String date;
 
-    // constructor
+    // constructor for e-mail
     public QueryCaddy(String fn, String p, String e, String b, String d ){
         fName = fn;
         bookTitle = b;
@@ -22,13 +22,15 @@ public class QueryCaddy {
         date = d;
     }
 
-    public String getName(){ return fName; }
+    // constructor for text messaging
 
-    public String getBookTitle(){ return bookTitle; }
+    public String getName(){ return fName; } // Public for use with Log.v
 
-    public String getEmail(){ return email; }
+    String getBookTitle(){ return bookTitle; }
 
-    public String getPhoneNo(){ return phoneNo; }
+    String getEmail(){ return email; }
 
-    public String getLoanDate(){ return date; }
+    String getPhoneNo(){ return phoneNo; }
+
+    String getLoanDate(){ return date; }
 }

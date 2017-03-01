@@ -12,23 +12,17 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="Implement EMail Intent for books that are not rerturned">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" />
+    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="Implement Text Messaging with phone Intent for books that are not returned">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
     </list>
     <ignored path="PyCoLib.iws" />
@@ -67,8 +61,8 @@
       <file leaf-file-name="CheckInActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+            <state relative-caret-position="879">
+              <caret line="105" column="55" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,28 +73,18 @@
       <file leaf-file-name="LibraryDbHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="196" column="116" selection-start-line="196" selection-start-column="116" selection-end-line="196" selection-end-column="116" />
+            <state relative-caret-position="327">
+              <caret line="187" column="35" selection-start-line="187" selection-start-column="35" selection-end-line="187" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryCaddy.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QueryCaddy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckOutActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+            <state relative-caret-position="517">
+              <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -1869,10 +1853,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryProvider.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/Reminder.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" />
       </list>
     </option>
   </component>
@@ -2657,7 +2641,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488229493910</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Implement EMail Intent for books that are not rerturned">
+      <created>1488401429338</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1488401429338</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView" selected-index="5">
@@ -2675,7 +2666,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296126" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.325673" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.325673" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2421823" sideWeight="0.109055504" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2755,7 +2746,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="File(s): BookACtivity&#10;Refactor insertBook to saveBook. Differentiate between a new book or an existing book. Insert a new book or edit and existing book." />
     <MESSAGE value="File(s): BookActivity&#10;In saveBook: If null uri and null book title- do not save and send error message" />
     <MESSAGE value="BookActivity:&#10;Implement TouchListener on Book edit fields. Implement AlertDialog for Book edit fields when touched and not saved to notify user to discard changes or continue editing after back button pressed withou save button&#10;CatalogActivity:&#10;Stub for PythonistasActivituy" />
     <MESSAGE value="BookActivity:&#10;Implement Delete AlertDialog w Listener that calls deleteBook to delete a single book" />
@@ -2780,7 +2770,8 @@
     <MESSAGE value="Complete Check In Activity" />
     <MESSAGE value="In CheckOutActivity make change to allow user to select loaned out date instead of using default date of current date" />
     <MESSAGE value="Implement EMail Intent for books that are not rerturned" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement EMail Intent for books that are not rerturned" />
+    <MESSAGE value="Implement Text Messaging with phone Intent for books that are not returned" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Text Messaging with phone Intent for books that are not returned" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3126,36 +3117,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="196" column="116" selection-start-line="196" selection-start-column="116" selection-end-line="196" selection-end-column="116" />
+        <state relative-caret-position="530">
+          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
+        <state relative-caret-position="879">
+          <caret line="105" column="55" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+        <state relative-caret-position="327">
+          <caret line="187" column="35" selection-start-line="187" selection-start-column="35" selection-end-line="187" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
           <folding />
         </state>
       </provider>

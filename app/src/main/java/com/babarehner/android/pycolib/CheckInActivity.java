@@ -91,7 +91,6 @@ public class CheckInActivity extends AppCompatActivity {
                 "to another Pythonista such as Travis or Jim." +
                 "\n\n Cheers, \n\n Mike";
         intent.putExtra(Intent.EXTRA_TEXT, subject);
-
         intent.setData(Uri.parse("mailto:"));   //Only e-mail should handle this
         // check if intent can be handled, let user decide e-mail client
         if (intent.resolveActivity(getPackageManager()) != null){
@@ -101,7 +100,12 @@ public class CheckInActivity extends AppCompatActivity {
 
     public void sendText(View v){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("smsto:"));    // only sms apps respond
+        LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
+        QueryCaddy qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
+        String message = "Please return '" + qc.getBookTitle() + "' borrowed from the Python library on " +
+                qc.getLoanDate() + ". " + "Please help share this title with other pythonistas.";
+        intent.putExtra("sms_body", message);
+        intent.setData(Uri.parse("smsto:" + qc.getPhoneNo()));    // only sms apps respond
         // Check if intent can be handled
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
