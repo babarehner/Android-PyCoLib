@@ -2,6 +2,8 @@ package com.babarehner.android.pycolib;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,10 +32,12 @@ public class CheckInActivity extends AppCompatActivity {
     private int year;
     private int month;
     private int day;
-
     static final int DATE_DIALOG_ID = 999;
 
     String[] loanedID;
+
+    private LibraryDbHelper dbHelp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,9 @@ public class CheckInActivity extends AppCompatActivity {
 
 
         b = (Spinner) findViewById(R.id.book_ci_spinner);
-        LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
-        List<String> titles_list = db.getCheckOutBooks();
+        // Is context class based or function/method based???
+        dbHelp = new LibraryDbHelper(getApplicationContext());
+        List<String> titles_list = dbHelp.getCheckOutBooks();
 
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, titles_list);
@@ -74,13 +79,43 @@ public class CheckInActivity extends AppCompatActivity {
     }
 
 
+    public void sendEmail(View v){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
+        QueryCaddy qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {qc.getEmail()});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Python Book " + qc.getBookTitle());
+        String subject = qc.getName() + "\n\n" + "Just to let you know that other Pythonistas may want to borrow " +
+                "'" + qc.getBookTitle() + "' from the Python library on " + qc.getLoanDate() + "." +
+                "We are still meeting every Friday at Panera. If I'm not there, please give the book " +
+                "to another Pythonista such as Travis or Jim." +
+                "\n\n Cheers, \n\n Mike";
+        intent.putExtra(Intent.EXTRA_TEXT, subject);
+
+        intent.setData(Uri.parse("mailto:"));   //Only e-mail should handle this
+        // check if intent can be handled, let user decide e-mail client
+        if (intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
+    }
+
+    public void sendText(View v){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("smsto:"));    // only sms apps respond
+        // Check if intent can be handled
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+
     public void setPythonistaOnView(){
         TextView tvPythonista = (TextView) findViewById(R.id.pythonist_return);
 
         // SELECT P.FirstName, P.LastName, P._id,  L._id, L.Name From TPythonistas P LEFT OUTER JOIN (Select TLoaned.Name, TLoaned._id FROM TLoaned WHERE TLoaned._id = 6) L WHERE L.Name = P._id;
-        LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
+        //LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
 
-        String s = db.getPythonistaName(Integer.parseInt(loanedID[0]));
+        String s = dbHelp.getPythonistaName(Integer.parseInt(loanedID[0]));
         Log.v("String s= ", s);
 
         tvPythonista.setText( s);

@@ -68,8 +68,8 @@ public class CheckOutActivity extends AppCompatActivity {
 
 
         b = (Spinner) findViewById(R.id.book_co_spinner);
-        //LibraryDbHelper db2 = new LibraryDbHelper(getApplicationContext());
-        List<String> titles_list = db.getBooks();
+        LibraryDbHelper db2 = new LibraryDbHelper(getApplicationContext());
+        List<String> titles_list = db2.getBooks();
 
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, titles_list);
@@ -93,8 +93,6 @@ public class CheckOutActivity extends AppCompatActivity {
         addListenerButton();
         setCurrentDateOnView();
 
-        //LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
-        //db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]));
     }
 
 

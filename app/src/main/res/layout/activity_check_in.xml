@@ -46,7 +46,6 @@
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:onClick="setDate"
         android:text="Date Book Returned" />
 
     <TextView
@@ -56,6 +55,26 @@
         android:layout_marginTop="200dp"
         android:text=""
         android:textAppearance="?android:textAppearanceMedium"/>
+
+    <Button
+        android:id="@+id/button_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:onClick="sendEmail"
+        android:text="E-Mail" />
+
+    <Button
+        android:id="@+id/button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:onClick="sendText"
+        android:text="Send Text" />
 
 
 </RelativeLayout>

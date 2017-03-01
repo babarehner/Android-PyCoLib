@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.babarehner.android.pycolib.QueryCaddy;
 import com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry;
 
 import java.util.ArrayList;
@@ -180,6 +181,26 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(strSQL);
         db.close();
+    }
+
+    public QueryCaddy getFiller(int loanedRowID){
+        QueryCaddy filler = new QueryCaddy("1", "2", "3", "4", "5");
+        Log.v(" after null", filler.getName());
+        // Returns 1 row with _id, FirstName, LastName, email, phone, book title
+        String strSQL = "Select P.FirstName, P.Phone, P.EMail, B.Title, T.LoanDate FROM TPythonistas P, TBooks B, TLoaned T WHERE " +
+               "T._id = '" + loanedRowID + "' AND T.Name = P._id AND T.TitleID  = B._id;";
+        Log.v("strSQL", strSQL);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(strSQL, null);
+        if (c.moveToFirst()) {
+            do {
+                filler = new QueryCaddy(c.getString(0), c.getString(1), c.getString(2), c.getString(3),c.getString(4));
+            } while (c.moveToNext());
+        }
+        c.close();
+        db.close();
+
+        return filler;
     }
 
 
