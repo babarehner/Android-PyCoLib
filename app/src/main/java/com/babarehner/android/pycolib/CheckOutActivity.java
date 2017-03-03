@@ -2,10 +2,12 @@ package com.babarehner.android.pycolib;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -161,20 +163,47 @@ public class CheckOutActivity extends AppCompatActivity {
                 day = selectedDay;
 
                 StringBuilder sb = new StringBuilder().append(year)
-                        .append("-").append(month + 1).append("-").append(day);
+                    .append("-").append(month + 1).append("-").append(day);
 
                 // set selected date into textview not shown to make ui simpler
                 // tvDisplayDate.setText(sb);
 
-                // After clicking on date, this is sent to update the Tloaned Table
-                Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);
-                LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
-                db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]), sb.toString());
-                // needed full name of class when dealing with call backs
-                Toast t = Toast.makeText(CheckOutActivity.this, (nameID[1] + " checked out '" + bookID[1] + "'/ on " + sb.toString()), Toast.LENGTH_LONG);
-                t.show();
+                showCheckOutConfirmationDialog(sb);
+
+
             }
         }
     };
 
+    private void showCheckOutConfirmationDialog(final StringBuilder sb){
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        String msg = (nameID[1] + " wishes to check out '" + bookID[1] + "' on "+ sb);
+        b.setMessage(msg);
+        b.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);
+                LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
+                // update TLoaned Table
+                db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]), sb.toString());
+                // needed full name of class when dealing with call backs
+                Toast t = Toast.makeText(CheckOutActivity.this, (nameID[1] + " checked out '" + bookID[1] + "'/ on " + sb.toString()), Toast.LENGTH_LONG);
+                t.show();
+                Intent intent = new Intent(CheckOutActivity.this, MainActivity.class);  // Go back to main menu
+                startActivity(intent);
+            }
+        });
+
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked cancel, try again
+                if (dialog !=null){
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alert = b.create();
+        alert.show();
+    }
 }

@@ -46,7 +46,7 @@
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:text="Date Book Returned" />
+        android:text="Check In Date" />
 
     <TextView
         android:id="@+id/tvCIDate"

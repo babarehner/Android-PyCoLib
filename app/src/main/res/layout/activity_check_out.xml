@@ -16,7 +16,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="Select Pythonista, Book, and Date to checkout book."
-        android:textStyle="bold"
         android:textSize="20sp"/>
 
     <Spinner

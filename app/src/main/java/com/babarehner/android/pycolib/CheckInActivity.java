@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.babarehner.android.pycolib.data.LibraryDbHelper;
 
@@ -38,6 +39,9 @@ public class CheckInActivity extends AppCompatActivity {
     String[] loanedID;
 
     private LibraryDbHelper dbHelp;
+
+    private QueryCaddy qc;
+    private String pyName;
 
 
     @Override
@@ -84,7 +88,7 @@ public class CheckInActivity extends AppCompatActivity {
     public void sendEmail(View v){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
-        QueryCaddy qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
+        qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] {qc.getEmail()});
         intent.putExtra(Intent.EXTRA_SUBJECT, "Python Book " + qc.getBookTitle());
         String subject = qc.getName() + "\n\n" + "Just to let you know that other Pythonistas may want to borrow " +
@@ -103,7 +107,7 @@ public class CheckInActivity extends AppCompatActivity {
     public void sendText(View v){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
-        QueryCaddy qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
+        qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
         String message = "Please return '" + qc.getBookTitle() + "' borrowed from the Python library on " +
                 qc.getLoanDate() + ". " + "Please help share this title with other pythonistas.";
         intent.putExtra("sms_body", message);
@@ -121,10 +125,10 @@ public class CheckInActivity extends AppCompatActivity {
         // SELECT P.FirstName, P.LastName, P._id,  L._id, L.Name From TPythonistas P LEFT OUTER JOIN (Select TLoaned.Name, TLoaned._id FROM TLoaned WHERE TLoaned._id = 6) L WHERE L.Name = P._id;
         //LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
 
-        String s = dbHelp.getPythonistaName(Integer.parseInt(loanedID[0]));
-        Log.v("String s= ", s);
+        pyName = dbHelp.getPythonistaName(Integer.parseInt(loanedID[0]));
+        Log.v("String s= ", pyName);
 
-        tvPythonista.setText( s);
+        tvPythonista.setText( pyName);
     }
 
 
@@ -183,6 +187,10 @@ public class CheckInActivity extends AppCompatActivity {
             // After clicking on date, this is sent to update the Tloaned Table
             LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
             dbh.updateReturnDate(Integer.parseInt(loanedID[0]), sb.toString());
+            qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
+
+            Toast t = Toast.makeText(CheckInActivity.this, (pyName + " checked in '" + qc.getBookTitle() + "'/ on " + sb.toString()), Toast.LENGTH_LONG);
+            t.show();
         }
     };
 }
