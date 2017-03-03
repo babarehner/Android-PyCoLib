@@ -103,21 +103,22 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
     // get data for book spinner
     public List<String > getBooks(){
         List<String> titles = new ArrayList<>();
-        // Two __ID s. Next time select a different _ID string, This is used in BaseColumns & is confusing
-        //String fNameQuery = "SELECT " + _IDB + ", " + COL_TITLE + " FROM " + TBOOKS + " ;";
-        // Need to check this SQL further when I fill out the ReturnDate to see if still correct
-        String fBookQuery = "Select T._id, T.Title, L.TitleID, L.LoanDate, L.ReturnDate " +
-                " FROM TBooks T LEFT OUTER JOIN TLoaned L on T._id = L.TitleID " +
-                " Where NOT (LoanDate IS NOT NULL AND ReturnDate IS NULL); ";
+
+        String strSQL = "SELECT B._id, B.Title FROM TBooks B WHERE NOT B._id IN (Select TLoaned.TitleID " +
+                " FROM TLoaned WHERE TLoaned.ReturnDate IS  NULL);";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(fBookQuery, null);
-        if (c.moveToFirst()) {
-            do {
-                titles.add(c.getString(0) + ". " + c.getString(1));
-            } while (c.moveToNext());
+        Cursor c = db.rawQuery(strSQL, null);
+        try {
+            if (c.moveToFirst()) {
+                do {
+                    titles.add(c.getString(0) + ". " + c.getString(1));
+                } while (c.moveToNext());
+            }
         }
-        c.close();
-        db.close();
+        finally {
+            c.close();
+            db.close();
+        }
         return titles;
     }
 
@@ -171,9 +172,8 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
 
-        // Correct syntax to get a string value out of a Generic ArrayList
-        String s =  pythonistaName.get(0);
-        return s;
+        // Correct getter syntax to get a string value out of a Generic ArrayList
+        return pythonistaName.get(0);
     }
 
     public void updateReturnDate(int id, String date){

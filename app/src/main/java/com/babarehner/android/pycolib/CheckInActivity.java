@@ -3,6 +3,7 @@ package com.babarehner.android.pycolib;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -60,6 +61,7 @@ public class CheckInActivity extends AppCompatActivity {
         b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
                 // pull title and then titleID out of Spinner
                 String loaned = (String) parent.getItemAtPosition(pos);
                 loanedID = loaned.split(Pattern.quote("."));

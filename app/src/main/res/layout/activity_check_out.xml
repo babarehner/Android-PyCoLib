@@ -15,9 +15,9 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Works, UI Needs Improvement"
+        android:text="Select Pythonista, Book, and Date to checkout book."
         android:textStyle="bold"
-        android:textSize="16sp"/>
+        android:textSize="20sp"/>
 
     <Spinner
         android:layout_width="wrap_content"
@@ -25,7 +25,8 @@
         android:id="@+id/name_co_spinner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="60dp"
+        android:textSize="36sp"/>
 
     <Spinner
         android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
         android:id="@+id/book_co_spinner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="100dp" />
 
     <Button
         android:id="@+id/button_borrow"
@@ -42,8 +43,7 @@
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:onClick="setDate"
-        android:text="Date Book Borrowed" />
+        android:text="Check Out Date" />
 
     <TextView
         android:id="@+id/tvCODate"

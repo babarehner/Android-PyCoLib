@@ -42,7 +42,7 @@
         <activity
             android:name=".PatronActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/BookTheme">
+            android:theme="@style/AppTheme">
 
             <!-- Parent activity metaadata to support Android 4.0 and lower -->
             <meta-data

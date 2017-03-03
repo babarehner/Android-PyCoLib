@@ -60,7 +60,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         Intent intent = getIntent();
         mCurrentBookUri = intent.getData();
 
-        // Idf the intent does not contain an single item Uri FAB clicked
+        // Idf the intent does not contain a single item Uri FAB clicked
         if (mCurrentBookUri == null){
             // set page header to add book
             setTitle(getString(R.string.book_activity_title_add_book));

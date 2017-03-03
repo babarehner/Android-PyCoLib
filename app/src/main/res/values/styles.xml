@@ -8,7 +8,7 @@
 
     <!-- Theme of the editor -->
     <style name="BookTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/editColorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/editColorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
