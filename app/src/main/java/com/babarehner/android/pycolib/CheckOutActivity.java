@@ -168,16 +168,16 @@ public class CheckOutActivity extends AppCompatActivity {
                 // set selected date into textview not shown to make ui simpler
                 // tvDisplayDate.setText(sb);
 
-                showCheckOutConfirmationDialog(sb);
+                showCheckOutConfirmationDialog(sb.toString());
 
 
             }
         }
     };
 
-    private void showCheckOutConfirmationDialog(final StringBuilder sb){
+    private void showCheckOutConfirmationDialog(final String s){
         AlertDialog.Builder b = new AlertDialog.Builder(this);
-        String msg = (nameID[1] + " wishes to check out '" + bookID[1] + "' on "+ sb);
+        String msg = (nameID[1] + " wishes to check out '" + bookID[1] + "' on "+ s);
         b.setMessage(msg);
         b.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
@@ -185,9 +185,9 @@ public class CheckOutActivity extends AppCompatActivity {
                 //Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);
                 LibraryDbHelper db3 = new LibraryDbHelper(getApplicationContext());
                 // update TLoaned Table
-                db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]), sb.toString());
+                db3.checkOutBook(Integer.parseInt(bookID[0]), Integer.parseInt(nameID[0]), s);
                 // needed full name of class when dealing with call backs
-                Toast t = Toast.makeText(CheckOutActivity.this, (nameID[1] + " checked out '" + bookID[1] + "'/ on " + sb.toString()), Toast.LENGTH_LONG);
+                Toast t = Toast.makeText(CheckOutActivity.this, (nameID[1] + " checked out '" + bookID[1] + "'/ on " + s), Toast.LENGTH_LONG);
                 t.show();
                 Intent intent = new Intent(CheckOutActivity.this, MainActivity.class);  // Go back to main menu
                 startActivity(intent);

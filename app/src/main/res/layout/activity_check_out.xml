@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#ffe6e6"
     tools:context="com.babarehner.android.pycolib.CheckOutActivity">
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Select Pythonista, Book, and Date to checkout book."
+        android:text="Select Pythonista &amp; Book from the spinners and then click on Date to checkout book."
         android:textSize="20sp"/>
 
     <Spinner
@@ -24,8 +25,8 @@
         android:id="@+id/name_co_spinner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:textSize="36sp"/>
+        android:layout_marginTop="80dp"
+        android:textSize="36sp" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
         android:id="@+id/book_co_spinner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="140dp" />
 
     <Button
         android:id="@+id/button_borrow"
@@ -41,17 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:text="Check Out Date" />
-
-    <TextView
-        android:id="@+id/tvCODate"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_marginTop="200dp"
-        android:text=""
-        android:textAppearance="?android:textAppearanceMedium"/>
-
+        android:text="Check Out Date" />
 
 
 

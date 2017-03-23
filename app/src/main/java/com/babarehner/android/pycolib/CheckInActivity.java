@@ -2,10 +2,12 @@ package com.babarehner.android.pycolib;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -77,8 +79,6 @@ public class CheckInActivity extends AppCompatActivity {
             }
         });
 
-
-
         addListenerButton();
         setCurrentDateOnView();
 
@@ -91,8 +91,9 @@ public class CheckInActivity extends AppCompatActivity {
         qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] {qc.getEmail()});
         intent.putExtra(Intent.EXTRA_SUBJECT, "Python Book " + qc.getBookTitle());
-        String subject = qc.getName() + "\n\n" + "Just to let you know that other Pythonistas may want to borrow " +
-                "'" + qc.getBookTitle() + "' from the Python library on " + qc.getLoanDate() + "." +
+        String subject = qc.getName() + "\n\n" + "Hope you are doing well. Just to let you know that " +
+                "other Pythonistas may want to borrow " + "'" + qc.getBookTitle() +
+                "' from the Python library on " + qc.getLoanDate() + "." +
                 "We are still meeting every Friday at Panera. If I'm not there, please give the book " +
                 "to another Pythonista such as Travis or Jim." +
                 "\n\n Cheers, \n\n Mike";
@@ -108,8 +109,8 @@ public class CheckInActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
         qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
-        String message = "Please return '" + qc.getBookTitle() + "' borrowed from the Python library on " +
-                qc.getLoanDate() + ". " + "Please help share this title with other pythonistas.";
+        String message = "Hope you are doing well. Please return '" + qc.getBookTitle() + "' borrowed from the Python library on " +
+                qc.getLoanDate() + ". Please help share this title with other pythonistas- Mike";
         intent.putExtra("sms_body", message);
         intent.setData(Uri.parse("smsto:" + qc.getPhoneNo()));    // only sms apps respond
         // Check if intent can be handled
@@ -133,17 +134,16 @@ public class CheckInActivity extends AppCompatActivity {
 
 
     public void setCurrentDateOnView() {
-        tvDisplayDate = (TextView) findViewById(R.id.tvCIDate);
 
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DAY_OF_MONTH);
 
-        tvDisplayDate.setText(new StringBuilder()
-                // Month starts with 0, add 1)
-                .append(month + 1).append("-").append(day).append("-")
-                .append(year).append(" "));
+//        tvDisplayDate.setText(new StringBuilder()
+//                // Month starts with 0, add 1)
+//                .append(month + 1).append("-").append(day).append("-")
+//                .append(year).append(" "));
     }
 
 
@@ -180,17 +180,43 @@ public class CheckInActivity extends AppCompatActivity {
 
             StringBuilder sb = new StringBuilder().append(year)
                     .append("-").append(month+1).append("-").append(day);
-
             // set selected date into textview
-            tvDisplayDate.setText(sb);
-
-            // After clicking on date, this is sent to update the Tloaned Table
-            LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
-            dbh.updateReturnDate(Integer.parseInt(loanedID[0]), sb.toString());
-            qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
-
-            Toast t = Toast.makeText(CheckInActivity.this, (pyName + " checked in '" + qc.getBookTitle() + "'/ on " + sb.toString()), Toast.LENGTH_LONG);
-            t.show();
+            // tvDisplayDate.setText(sb);
+            showCheckInConfirmationDialog(sb.toString());
         }
     };
+
+
+    private void showCheckInConfirmationDialog(final String s){
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        String msg = (pyName + " wishes to check in '" + loanedID[1] + "' on "+ s);
+        b.setMessage(msg);
+        b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);
+                LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
+                // update TLoaned Table
+                dbh.updateReturnDate(Integer.parseInt(loanedID[0]), s);;
+                // needed full name of class when dealing with call backs
+                Toast t = Toast.makeText(CheckInActivity.this, (pyName + " checked in '" + loanedID[1] + "'/ on " + s), Toast.LENGTH_LONG);
+                t.show();
+                Intent intent = new Intent(CheckInActivity.this, MainActivity.class);  // Go back to main menu
+                startActivity(intent);
+            }
+        });
+
+        b.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // user clicked cancel, try again
+                if (dialog !=null){
+                    dialog.dismiss();
+                }
+            }
+        });
+        AlertDialog alert = b.create();
+        alert.show();
+    }
+
 }

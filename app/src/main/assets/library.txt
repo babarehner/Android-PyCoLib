@@ -7,21 +7,21 @@ Data Visualization with D3.js Cookbook, ,
 Definite Guide to Django, Holvati & Kaplan-Moss, 2008
 Flask Web Development, Miguel Grinberg, 2014
 Getting Started with Arduino, ,
-Gray Hat Python, ,
-Guide to Numpy, ,
+Gray Hat Python, Justin Seitz, 2009
+Guide to Numpy 2nd ed, Travis Oliphant, 2015
 Introducing Python, ,
 Land of Lisp, Conrad Barski, 2011
 Learning Python 3rd Ed., Mark Lutz, 2007
 Learning Python 4th Ed., ,
-Learning Python 5th Ed., ,
+Learning Python 5th Ed.,Mark Lutz, 2013
 Making Things See, Greg Borenstein, 2012
 Master D3.js, ,
 On Being a Data Skeptic, Cathy O'Neil, 2014
 Practical Django Projects, James Bennett, 2008
 Pro Django, Marty Alchin, 2009
 Programmers at Work, Susan Lammers, 1986
-Python Cookbook, Martelli, Ravenscroft, & Ascher, 2005
-Python Playground, ,
+Python Cookbook, Martelli Ravenscroft & Ascher, 2005
+Python Playground, Mahesh Venkitachalam, 2016
 Python Pocket Reference, Mark Lutz, 2009
 Raspberry Pi Hacks, Ruth Suehle & Tom Callaway, 2014
 Super Scratch Programming Adventure, The Lead Project, 2010
