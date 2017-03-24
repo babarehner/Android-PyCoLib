@@ -3,309 +3,147 @@
 
     <item
         is-multidex="false"
-        jar="/home/mike/.android/build-cache/7c7d59e9b49f4ef208ebac3f96443608c98fd153/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_1385081518576d6850e6eb72127778ed1dfe76e0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/2e6f44868cf8e86499079f16acf0a69a6dd7d451/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_90c474ee0ae76aa4737d71f373619ca18ebecada.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/ee9b8702fca8c651ce38e5cc8525a803d62a1bd3/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2007bc68309376beab4b9d2c949b80cfeb6c2d54/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/2e6f44868cf8e86499079f16acf0a69a6dd7d451/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_90c474ee0ae76aa4737d71f373619ca18ebecada/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/7c7d59e9b49f4ef208ebac3f96443608c98fd153/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1385081518576d6850e6eb72127778ed1dfe76e0/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/674583d49c928b8fba8776ffaf2cea8d3044ada9/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7887513d85f65a0ddcd01ab41d3d9ccecb2d51d3.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_063d45d05fb236fae3705fc137ca5fd980e525ae/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/ee9b8702fca8c651ce38e5cc8525a803d62a1bd3/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_3d8d3ecbac144c843e2fcb1405cdda0b7a70d037.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/2e6f44868cf8e86499079f16acf0a69a6dd7d451/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_0fbe315270b549ab885382038bcb271c78d784d9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/061eec004b74dcb688b78e31c5843c2d72bf29e0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_62d1e0de43a3f9f3f671ac1d2e339fb5c87f5aec.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/8643ba5646cbb7e518b91f426f7e1b7460515703/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2561027cefc66f425d8b9c5020f67e1836496164/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/332030a4a3f84351ba01744112ee1bf3a254aa60/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_4bccb6f5f762fe9b47fda9a2debf267f6752303f.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/061eec004b74dcb688b78e31c5843c2d72bf29e0/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_62d1e0de43a3f9f3f671ac1d2e339fb5c87f5aec/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/8643ba5646cbb7e518b91f426f7e1b7460515703/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_2561027cefc66f425d8b9c5020f67e1836496164.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/332030a4a3f84351ba01744112ee1bf3a254aa60/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4bccb6f5f762fe9b47fda9a2debf267f6752303f/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/0d4d2310628613ed666c5627592943ad9f55aabd/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_1eeab300f8c00719d32acd6e3c8f3ddd8fed6945.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/0d4d2310628613ed666c5627592943ad9f55aabd/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_1eeab300f8c00719d32acd6e3c8f3ddd8fed6945/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/674583d49c928b8fba8776ffaf2cea8d3044ada9/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_7887513d85f65a0ddcd01ab41d3d9ccecb2d51d3/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/6bdee18db9a6eb3b7dbe06f0eba8978963d16896/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_4aa43ab2814ac898956ca7a4e64d91228e0d2456.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/6bdee18db9a6eb3b7dbe06f0eba8978963d16896/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4aa43ab2814ac898956ca7a4e64d91228e0d2456/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/0d4d2310628613ed666c5627592943ad9f55aabd/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_cb1ad71d0c543971491422a35faac1cae5d1b1df.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/8643ba5646cbb7e518b91f426f7e1b7460515703/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_d81de8f5663aee3d6a43d8b1fa889ba5c1dda965/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/0d4d2310628613ed666c5627592943ad9f55aabd/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cb1ad71d0c543971491422a35faac1cae5d1b1df/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/674583d49c928b8fba8776ffaf2cea8d3044ada9/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c3a7ef5760461e0e4c991cd4afb7d45bc76237df/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/8643ba5646cbb7e518b91f426f7e1b7460515703/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d81de8f5663aee3d6a43d8b1fa889ba5c1dda965.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/674583d49c928b8fba8776ffaf2cea8d3044ada9/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_c3a7ef5760461e0e4c991cd4afb7d45bc76237df.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/2e6f44868cf8e86499079f16acf0a69a6dd7d451/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0fbe315270b549ab885382038bcb271c78d784d9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/ee9b8702fca8c651ce38e5cc8525a803d62a1bd3/output/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_3d8d3ecbac144c843e2fcb1405cdda0b7a70d037/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/d4996790703515079bb9ee2e3612bee9c838d789/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_09c5786b474046a713e15517f59f8267cfcaea57/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/mike/.android/build-cache/d4996790703515079bb9ee2e3612bee9c838d789/output/jars/classes.jar"
+        jar="/home/mike/.android/build-cache/902ffeeaff31f4c74cd613b47708d85f3025b922/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_09c5786b474046a713e15517f59f8267cfcaea57.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4443238ed35b24f6ccf1aad99f32484fd3a611ce">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_fe758be044a8fdf6340eb07c28850c5605bca26d/classes.dex" />
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_3cc5efac43352ab4d63cefa9adf676bfdd8aff73.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mike/.android/build-cache/9263ae228e2f14ea2bb0ec51d98045b217aafec6/output/jars/classes.jar"
+        jar="/home/mike/.android/build-cache/772399ccf9b082924c2bb939c5a97900b536e8ff/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_eda1d4571676124725f95b6a222c35862f041bba.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/mike/.android/build-cache/9263ae228e2f14ea2bb0ec51d98045b217aafec6/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_eda1d4571676124725f95b6a222c35862f041bba/classes.dex" />
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_0c4ec468dc04286508877c80ef620694e249cefa.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/mike/.android/build-cache/ee9b8702fca8c651ce38e5cc8525a803d62a1bd3/output/jars/classes.jar"
+        jar="/home/mike/.android/build-cache/f2324de6adebc74368bfad979f5c790a525eb594/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_56f019cebbb76aab46e4194ae350cd50945385fe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/f2324de6adebc74368bfad979f5c790a525eb594/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_afbfbc54adf6a5a07ff7e31962a53a26f8d1097e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/772399ccf9b082924c2bb939c5a97900b536e8ff/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_5436d6dcd53f39b9dcec9898c0a68efe9c4a74ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/5ad803885b9508b919ccaca3e970e0ddaccfda8f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_c16dc907942b307c2a12e76d30aeb6af786066f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/f873265bd252c7a7a38d184e482bfd3f224bb4f1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_62d1f261da09c0911a81484c31f526ef62341187.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/89c03954a4ace701773e151416e22c6df059fbdd/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_6151a1ef85d918b8f584d43fa5d122ae510d929c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/ffac2f41e1e13b899f553d46790713aadb1541c9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_0529ce240912f75122c1166e2d657a72d8783e4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/f295b7d3db07684cef22b6dd4c4b98072d515fc7/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_2007bc68309376beab4b9d2c949b80cfeb6c2d54.jar" />
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_13693896e4478baa42e834ae4daf6aa2a0c1d339.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/f295b7d3db07684cef22b6dd4c4b98072d515fc7/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8ba456ee4967ffd0f5d25a9236508073a2e519dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/fafd335ad239aaf2ae82280f76f4132f3ffd5a12/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_2bad0ed8f318e69ebe1425980d6f5ac8cff47339.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/ffac2f41e1e13b899f553d46790713aadb1541c9/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e7c049e533403b63f1141d8c11f7e6d263bc7f5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/37a92d5dea5c4bbaf9ae41674a8f7f946f5b6946/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_555b66bbe3c8c9f76f0c524b27f2ed381e33b613.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/bf81b4036ee7cbb07d14e891d008fcafdeb342fc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/classes_1de8aef67b2d2604e233a6cedb8ace7e89b17346.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/mike/.android/build-cache/bf81b4036ee7cbb07d14e891d008fcafdeb342fc/output/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/mike/Dev/Android/PyCoLib/PyCoLib/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a9dde27fc685478cfae718bebaf712f89cc38bbc.jar" />
     </item>
 
 </items>

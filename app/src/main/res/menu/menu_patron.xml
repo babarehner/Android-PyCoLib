@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http:/schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".LibraryActivity">
+    tools:context=".PatronActivity">
 
     <item
-        android:id="@+id/action_insert_book"
-        android:title="@string/action_insert_book"
+        android:id="@+id/action_insert_pythonista"
+        android:title="@string/action_insert_pythonista"
         app:showAsAction="never" />
 
 </menu>

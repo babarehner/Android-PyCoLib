@@ -22,8 +22,18 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="">
+    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="added admin and test menu items to Main Activity. Removed test menu items from Patron &amp; Library Activities. Added &quot;Add a Book/Pythonista&quot; menu items to Patron &amp; Library activities">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_admin_test.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_patron.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
     </list>
     <ignored path="PyCoLib.iws" />
@@ -58,61 +68,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="675">
-      <file leaf-file-name="activity_check_in.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_in.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="PatronActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2211">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="86">
+              <caret line="75" column="57" selection-start-line="75" selection-start-column="57" selection-end-line="75" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckInActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-              <folding>
-                <element signature="e#5819#5979#0" expanded="true" />
-                <element signature="e#5978#5979#0" expanded="true" />
-                <element signature="e#6364#6973#0" expanded="true" />
-                <element signature="e#6972#6973#0" expanded="true" />
-                <element signature="e#7249#8070#0" expanded="true" />
-                <element signature="e#8069#8070#0" expanded="true" />
-                <element signature="e#8112#8407#0" expanded="true" />
-                <element signature="e#8406#8407#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="594">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LibraryDbHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2673">
-              <caret line="107" column="57" selection-start-line="106" selection-start-column="24" selection-end-line="107" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1870#1871#0" expanded="false" />
-                <element signature="e#1927#1928#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="556">
+              <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LibraryActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckOutActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckOutActivity.java">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5874">
-              <caret line="201" column="37" selection-start-line="201" selection-start-column="37" selection-end-line="201" selection-end-column="37" />
+            <state relative-caret-position="306">
+              <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#4998#4999#0" expanded="false" />
-                <element signature="e#5056#5057#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -123,11 +128,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="valueResourceFile" />
         <option value="ASClass" />
         <option value="layoutResourceFile_vertical" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -1799,8 +1804,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/Library.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_edit.xml" />
         <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_edit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
@@ -1812,7 +1815,6 @@
         <option value="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryCursorAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_library.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PythnistaCursorAdapter.java" />
@@ -1823,21 +1825,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pythonista.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PythonistaActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java" />
         <option value="$PROJECT_DIR$/library.txt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/library.txt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/assets/library.txt" />
         <option value="$PROJECT_DIR$/app/src/main/assets/pythonistas.txt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryContract.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryProvider.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/Reminder.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/QueryCaddy.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/BookActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_dropdown_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
@@ -1850,14 +1847,22 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java" />
         <option value="$PROJECT_DIR$/app/.gitignore" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_admin_test.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_patron.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="106" />
-    <option name="y" value="-8" />
+    <option name="y" value="48" />
     <option name="width" value="3094" />
-    <option name="height" value="1808" />
+    <option name="height" value="1752" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1885,6 +1890,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -1980,6 +1986,122 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pycolib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyCoLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2005,7 +2127,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2013,7 +2134,7 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
-    <property name="device.picker.selection" value="Nexus_5_API_23" />
+    <property name="device.picker.selection" value="Nexus_4_API_16" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AndroidBasicsDataStorage/ud845-Pets-starting-point/app/src/main/java/com/example/android/pets/EditorActivity.java" />
   </component>
   <component name="RecentsManager">
@@ -2400,13 +2521,6 @@
       <option name="presentableId" value="Default" />
       <updated>1479518208479</updated>
     </task>
-    <task id="LOCAL-00001" summary="Testing git with Android Studio">
-      <created>1480105358016</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1480105358016</updated>
-    </task>
     <task id="LOCAL-00002" summary="Python Dojo 11-25-16">
       <created>1480454047770</created>
       <option name="number" value="00002" />
@@ -2743,7 +2857,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490283977840</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="General update to db and add pythonistas.txt to .gitignore">
+      <created>1490284270178</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1490284270179</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2756,19 +2877,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="106" y="-8" width="3094" height="1808" extended-state="6" />
-    <editor active="false" />
+    <frame x="106" y="48" width="3094" height="1752" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955304" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32488325" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32488325" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2421823" sideWeight="0.109055504" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40093395" sideWeight="0.59293807" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3941216" sideWeight="0.40706196" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3922615" sideWeight="0.40706196" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40093395" sideWeight="0.5909394" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32955304" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32955304" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821882" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
@@ -2841,7 +2962,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="LibraryActivity:&#10;Implement delete all engtries&#10;Book:&#10;delete book class- never used" />
     <MESSAGE value="add new java class PatronActivity and new layout activity_patron. This will do for borrowers what the LibraryActivity does for books," />
     <MESSAGE value="Add MainActivity.java and activity_main.xml to project. These provide an entry page and allow users to navigate between books, borrowers and check in/checkout" />
     <MESSAGE value="Add PythonistaActivity and activity_pythonista.  Implement layout for activity_pythonista. Obtain icons from material.io/icons and implement standard icons. Remove all icons that may create copyright issues." />
@@ -2866,7 +2986,8 @@
     <MESSAGE value="Catch DatePicker in CheckoutActivity form firing twice&#10;Change SQL for check out books list&#10;set spinner selected item to blue- may cause intermittent null pointer error&#10;Write toast for CheckOutActivity book checked out&#10;Clean up CheckoutActivity page" />
     <MESSAGE value="Add color and formatting to Main Page&#10;Add Save/Cancel Dialog to CheckOut Page&#10;Add Toasts to DB changes on CheckOut and CheckIn page" />
     <MESSAGE value="General update to db and add pythonistas.txt to .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="General update to db and add pythonistas.txt to .gitignore" />
+    <MESSAGE value="added admin and test menu items to Main Activity. Removed test menu items from Patron &amp; Library Activities. Added &quot;Add a Book/Pythonista&quot; menu items to Patron &amp; Library activities" />
+    <option name="LAST_COMMIT_MESSAGE" value="added admin and test menu items to Main Activity. Removed test menu items from Patron &amp; Library Activities. Added &quot;Add a Book/Pythonista&quot; menu items to Patron &amp; Library activities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2877,40 +2998,12 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java</url>
-          <line>136</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/MainActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/python_snake_book_qm.jpg" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_edit.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/ic_launcher-web.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -3002,13 +3095,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_check_in.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/assets/pythonistas.txt" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="122" column="27" selection-start-line="121" selection-start-column="15" selection-end-line="123" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PythonistaActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1682">
@@ -3016,24 +3102,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/assets/library.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="841">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2871">
-          <caret line="101" column="54" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -3051,7 +3123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3062,24 +3133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2378">
           <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/BookActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1267">
-          <caret line="318" column="27" selection-start-line="318" selection-start-column="27" selection-end-line="318" selection-end-column="27" />
-          <folding>
-            <element signature="e#13413#13439#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3095,7 +3148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1182">
           <caret line="93" column="41" selection-start-line="93" selection-start-column="41" selection-end-line="93" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3113,7 +3165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3143,29 +3194,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="3" column="60" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2013">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3190,17 +3222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
-          <folding>
-            <element signature="e#1675#1930#0" expanded="false" />
-            <element signature="e#1929#1930#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_out.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3208,7 +3229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
           <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3219,7 +3239,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3227,11 +3246,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5874">
           <caret line="201" column="37" selection-start-line="201" selection-start-column="37" selection-end-line="201" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4998#4999#0" expanded="false" />
-            <element signature="e#5056#5057#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3242,19 +3257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2211">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2673">
-          <caret line="107" column="57" selection-start-line="106" selection-start-column="24" selection-end-line="107" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1870#1871#0" expanded="false" />
-            <element signature="e#1927#1928#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3262,23 +3264,145 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/CheckInActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
+        <state relative-caret-position="1980">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1419">
+          <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2673">
+          <caret line="92" column="26" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/data/LibraryDbHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="107" column="57" selection-start-line="106" selection-start-column="24" selection-end-line="107" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_admin_test.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
           <folding>
-            <element signature="e#5819#5979#0" expanded="true" />
-            <element signature="e#5978#5979#0" expanded="true" />
-            <element signature="e#6364#6973#0" expanded="true" />
-            <element signature="e#6972#6973#0" expanded="true" />
-            <element signature="e#7249#8070#0" expanded="true" />
-            <element signature="e#8069#8070#0" expanded="true" />
-            <element signature="e#8112#8407#0" expanded="true" />
-            <element signature="e#8406#8407#0" expanded="true" />
+            <element signature="e#329#363#0" expanded="false" />
+            <element signature="e#490#530#0" expanded="false" />
+            <element signature="e#649#681#0" expanded="false" />
+            <element signature="e#800#832#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/BookActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="345" column="26" selection-start-line="345" selection-start-column="24" selection-end-line="345" selection-end-column="51" />
+          <folding>
+            <element signature="e#13413#13439#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_library.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#326#354#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_edit.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#490#513#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_patron.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding>
+            <element signature="e#331#365#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="75" column="57" selection-start-line="75" selection-start-column="57" selection-end-line="75" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="138" column="8" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,6 @@ package com.babarehner.android.pycolib;
 
 import android.app.LoaderManager;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,11 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 
 public class LibraryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -42,12 +35,12 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
 
         setTitle("Books");
 
-        /** Changes the title bar text color. Need to hunt down a way to use findByID(T.id.color)
-        * String title = "PyCoLib";
-        * SpannableString s = new SpannableString(title);
-        * s.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        * getSupportActionBar().setTitle(s);
-        **/
+        /* Changes the title bar text color. Need to hunt down a way to use findByID(T.id.color)
+         String title = "PyCoLib";
+         SpannableString s = new SpannableString(title);
+         s.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, title.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+         getSupportActionBar().setTitle(s);
+        */
 
         // Create a floating action button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -99,69 +92,20 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         return true;
     }
 
+
     // Select from the options menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_insert_test_data:
-                insertTestDataBook();
-                return true;
-            case R.id.action_delete_all_data:
-                deleteAll();
+            case R.id.action_insert_book:
+                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    // inserts a row of test data into SQL table db
-    private void insertTestDataBook() {
 
-        BufferedReader br;
-
-        //AssetManager am = getAssets();
-        //final InputStream is = am.open("library.txt");
-
-        try{
-            final InputStream file = getAssets().open("library.txt");
-            br = new BufferedReader(new InputStreamReader(file));
-            String line = br.readLine();
-            while(line != null){
-                Log.d("Show Books", line);
-                // -1 used to deal with empty values in csv file
-                String[] stuff = line.split(",", -1);
-                for (int i=0; i<3; i++){
-                    Log.d( "stuff", stuff[i] +"\n");
-                }
-                ContentValues values = new ContentValues();
-                values.put(LibraryContract.LibraryEntry.COL_TITLE, stuff[0]);
-                values.put(LibraryContract.LibraryEntry.COL_AUTHOR, stuff[1]);
-                values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, stuff[2]);
-                values.put(LibraryContract.LibraryEntry.COL_BORROWER, "not used");
-                Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
-
-                line = br.readLine();
-            }
-
-
-        } catch(IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        /*
-        ContentValues values = new ContentValues();
-        values.put(LibraryContract.LibraryEntry.COL_TITLE, "Python Cookbook 2nd Edition");
-        values.put(LibraryContract.LibraryEntry.COL_AUTHOR, "Alex Martelli & Others");
-        values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, "2005");
-        values.put(LibraryContract.LibraryEntry.COL_BORROWER, "Mike Rehner");
-        Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
-        */
-    }
-
-
-    private void deleteAll() {
-        int deleteRowCount = getContentResolver().delete(LibraryContract.LibraryEntry.CONTENT_URI, null, null);
-        Log.v("LibraryActivity", "Number of Rows deleted: " + deleteRowCount);
-    }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -180,6 +124,7 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
                 null,
                 null);
     }
+
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
