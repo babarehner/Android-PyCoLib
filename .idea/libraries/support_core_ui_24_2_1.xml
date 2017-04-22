@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="support-core-ui-24.2.1">
-    <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/annotations.zip!/" />
-    </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/fab5c7559c3afbd6a6b35a1f3aa480d39184b905/output/jars/libs/internal_impl-24.2.1.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/fab5c7559c3afbd6a6b35a1f3aa480d39184b905/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/fab5c7559c3afbd6a6b35a1f3aa480d39184b905/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/ec63c2e46a2b9b7f75c06a2164b19194271d2a59/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/ec63c2e46a2b9b7f75c06a2164b19194271d2a59/output/jars/libs/internal_impl-24.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/ec63c2e46a2b9b7f75c06a2164b19194271d2a59/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

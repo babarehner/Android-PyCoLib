@@ -51,7 +51,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
                 + LibraryEntry.COL_TITLE + " TEXT_NOT_NULL, "
                 + LibraryEntry.COL_AUTHOR + " TEXT, "
                 + LibraryEntry.COL_YEAR_PUBLISHED + " INTEGER, "
-                + LibraryEntry.COL_BORROWER + " TEXT);";
+                + LibraryEntry.COL_STATUS + " TEXT);";
                 // + LibraryEntry.COL_CHECKED_OUT + " BOOLEAN;";
 
         String SQL_CREATE_PYTHONISTAS_TABLE = "CREATE TABLE " + TPYTHONISTAS
@@ -130,7 +130,7 @@ public class LibraryDbHelper extends SQLiteOpenHelper {
         values.put(COL_NAME_ID, pythonistaID);
         values.put(COL_LOAN_DATE, date);
 
-        //values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
+        //values.put(LibraryContract.LibraryEntry.COL_STATUS, borrowerString);
 
         String checkOut = "Insert into TLoaned values (null," + bookID + ", "
                 + pythonistaID  + ", " + date + ");";

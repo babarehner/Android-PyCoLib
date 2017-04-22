@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 values.put(LibraryContract.LibraryEntry.COL_TITLE, stuff[0]);
                 values.put(LibraryContract.LibraryEntry.COL_AUTHOR, stuff[1]);
                 values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, stuff[2]);
-                values.put(LibraryContract.LibraryEntry.COL_BORROWER, "not used");
+                values.put(LibraryContract.LibraryEntry.COL_STATUS, "not used");
                 Uri uri = getContentResolver().insert(LibraryContract.LibraryEntry.CONTENT_URI, values);
 
                 line = br.readLine();

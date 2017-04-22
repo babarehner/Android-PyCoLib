@@ -192,7 +192,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         values.put(LibraryContract.LibraryEntry.COL_AUTHOR, authorString);
         values.put(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED, mPublishYear);
         //Log.v("BookActivity"," mPublishYear " + mPublishYear);
-        values.put(LibraryContract.LibraryEntry.COL_BORROWER, borrowerString);
+        values.put(LibraryContract.LibraryEntry.COL_STATUS, borrowerString);
 
         if (mCurrentBookUri == null) {
             // a new book
@@ -228,7 +228,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
                 LibraryContract.LibraryEntry.COL_TITLE,
                 LibraryContract.LibraryEntry.COL_AUTHOR,
                 LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED,
-                LibraryContract.LibraryEntry.COL_BORROWER};
+                LibraryContract.LibraryEntry.COL_STATUS};
 
         // Start a new thread
         return new CursorLoader(this, mCurrentBookUri, projection, null, null, null);
@@ -242,7 +242,7 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
             int titleColumnIndex=c.getColumnIndex(LibraryContract.LibraryEntry.COL_TITLE);
             int authorColumnIndex=c.getColumnIndex(LibraryContract.LibraryEntry.COL_AUTHOR);
             int publishYearColumnIndex=c.getColumnIndex(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED);
-            int borrowerColumnIndex=c.getColumnIndex(LibraryContract.LibraryEntry.COL_BORROWER);
+            int borrowerColumnIndex=c.getColumnIndex(LibraryContract.LibraryEntry.COL_STATUS);
 
             // use the index to pull the data out
             String title=c.getString(titleColumnIndex);

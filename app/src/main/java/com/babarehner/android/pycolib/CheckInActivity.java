@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -67,7 +66,8 @@ public class CheckInActivity extends AppCompatActivity {
         b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
+                // line below has been listed with a fatal exception (Null Pointer) error at times
+             //   ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
                 // pull title and then titleID out of Spinner
                 String loaned = (String) parent.getItemAtPosition(pos);
                 loanedID = loaned.split(Pattern.quote("."));
@@ -91,13 +91,15 @@ public class CheckInActivity extends AppCompatActivity {
         qc = dbh.getFiller(Integer.parseInt(loanedID[0]));
         intent.putExtra(Intent.EXTRA_EMAIL, new String[] {qc.getEmail()});
         intent.putExtra(Intent.EXTRA_SUBJECT, "Python Book " + qc.getBookTitle());
-        String subject = qc.getName() + "\n\n" + "Hope you are doing well. Just to let you know that " +
-                "other Pythonistas may want to borrow " + "'" + qc.getBookTitle() +
-                "' from the Python library on " + qc.getLoanDate() + "." +
-                "We are still meeting every Friday at Panera. If I'm not there, please give the book " +
-                "to another Pythonista such as Travis or Jim." +
-                "\n\n Cheers, \n\n Mike";
-        intent.putExtra(Intent.EXTRA_TEXT, subject);
+
+        StringBuilder sb = new StringBuilder();
+        sb = sb.append(qc.getName()).append(",\n\nHope you are doing well. ")
+                .append("Just to let you know that other Pythonistas may want to use the book you borrowed- '")
+                .append(qc.getBookTitle()).append("' from the Python library on '").append(qc.getLoanDate())
+                .append("'. We still have the Python Dojo every Friday at Panera at 6:00 PM. ")
+                .append(" If I'm not there when you return the book please give it to another Pythonista such as Travis or Jim.")
+                .append("\n\n Cheers, \n\n Mike");
+        intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
         intent.setData(Uri.parse("mailto:"));   //Only e-mail should handle this
         // check if intent can be handled, let user decide e-mail client
         if (intent.resolveActivity(getPackageManager()) != null){
@@ -197,7 +199,7 @@ public class CheckInActivity extends AppCompatActivity {
                 //Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);
                 LibraryDbHelper dbh = new LibraryDbHelper(getApplicationContext());
                 // update TLoaned Table
-                dbh.updateReturnDate(Integer.parseInt(loanedID[0]), s);;
+                dbh.updateReturnDate(Integer.parseInt(loanedID[0]), s);
                 // needed full name of class when dealing with call backs
                 Toast t = Toast.makeText(CheckInActivity.this, (pyName + " checked in '" + loanedID[1] + "'/ on " + s), Toast.LENGTH_LONG);
                 t.show();

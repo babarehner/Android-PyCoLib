@@ -34,7 +34,7 @@
         android:id="@+id/book_co_spinner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp" />
+        android:layout_marginTop="130dp" />
 
     <Button
         android:id="@+id/button_borrow"

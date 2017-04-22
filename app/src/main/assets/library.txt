@@ -1,9 +1,11 @@
 Arduino Cookbook 2nd Ed., Michael Margolis, 2011
 Automate the Boring Stuff with Python, ,
-Beginning Python Visualization, ,
+Beginning Python Visualization, Shai Vaingast, 2009
+Book of PF 3rd ed, Peter Hansteen, 2015
 Chaos, James Gelick, 1987
+Core Python Programming 2nd ed, Wesley J. Chun, 2007
 Creating Apps in Kivy, Dusty Phillips, 2014
-Data Visualization with D3.js Cookbook, ,
+Data Visualization with D3.js Cookbook, Nick Qi Zhu, 2013
 Definite Guide to Django, Holvati & Kaplan-Moss, 2008
 Flask Web Development, Miguel Grinberg, 2014
 Getting Started with Arduino, ,
@@ -15,14 +17,14 @@ Learning Python 3rd Ed., Mark Lutz, 2007
 Learning Python 4th Ed., ,
 Learning Python 5th Ed.,Mark Lutz, 2013
 Making Things See, Greg Borenstein, 2012
-Master D3.js, ,
+Master D3.js, Pablo Castillo, 2014
 On Being a Data Skeptic, Cathy O'Neil, 2014
 Practical Django Projects, James Bennett, 2008
 Pro Django, Marty Alchin, 2009
 Programmers at Work, Susan Lammers, 1986
 Python Cookbook, Martelli Ravenscroft & Ascher, 2005
 Python Playground, Mahesh Venkitachalam, 2016
-Python Pocket Reference, Mark Lutz, 2009
+Python Pocket Reference 4th ed., Mark Lutz, 2009
 Raspberry Pi Hacks, Ruth Suehle & Tom Callaway, 2014
 Super Scratch Programming Adventure, The Lead Project, 2010
 Test-Driven Development with Python, Harry J.W. Percival, 2014

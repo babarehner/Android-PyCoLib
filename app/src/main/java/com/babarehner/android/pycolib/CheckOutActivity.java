@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +49,7 @@ public class CheckOutActivity extends AppCompatActivity {
         setTitle("Check Out Book");
 
         s = (Spinner) findViewById(R.id.name_co_spinner);
+        // Update spinner to use content resolver & CursorLoader id in the 300s
         LibraryDbHelper db = new LibraryDbHelper(getApplicationContext());
         List<String> names_list = db.getNames();
 
@@ -67,7 +67,8 @@ public class CheckOutActivity extends AppCompatActivity {
         s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
+                // line below has been listed with a fatal exception (Null Pointer) error on rotation
+                // ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
                 //Log.v("name ", (String) parent.getItemAtPosition(pos));
                 String name = (String) parent.getItemAtPosition(pos);
                 // nameID[0] returns the primary key ID of a pythonista
@@ -80,6 +81,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
 
         b = (Spinner) findViewById(R.id.book_co_spinner);
+        //Rewrite CursorLoader to do this complex query on multiple tables!!!
         LibraryDbHelper db2 = new LibraryDbHelper(getApplicationContext());
         List<String> titles_list = db2.getBooks();
 
@@ -91,8 +93,8 @@ public class CheckOutActivity extends AppCompatActivity {
         b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                // line below has been listed with a fatal exception (Null Pointer) error at times
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
+                // line below has been listed with a fatal exception (Null Pointer) error on rotation
+                // ((TextView) parent.getChildAt(0)).setTextColor(Color.BLUE); // Sets selected text color blue
                 //Log.d("book", (String) parent.getItemAtPosition(pos));
                 book = (String) parent.getItemAtPosition(pos);
                 //bookID = book.split(Pattern.quote("."));
@@ -112,6 +114,14 @@ public class CheckOutActivity extends AppCompatActivity {
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+
+
+    /**
+     * Redo date to use Linux date number from 1970 and then use Android edit functions to set local of date
+     * Follow through and do this for all the date picker functions.
+     *
+     */
+
 
     public void setCurrentDateOnView() {
         //tvDisplayDate = (TextView) findViewById(R.id.tvCODate);
@@ -175,11 +185,16 @@ public class CheckOutActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Low priority - refactor to take care of Android Destroy and Restart when rotating phone.
+     * @param s
+     */
+
     private void showCheckOutConfirmationDialog(final String s){
         AlertDialog.Builder b = new AlertDialog.Builder(this);
         String msg = (nameID[1] + " wishes to check out '" + bookID[1] + "' on "+ s);
         b.setMessage(msg);
-        b.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+        b.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Log.v("Before db call: ", bookID[0] + bookID[1] + nameID[1]);

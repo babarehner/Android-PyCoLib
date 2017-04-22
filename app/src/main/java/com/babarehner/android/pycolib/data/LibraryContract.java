@@ -83,7 +83,7 @@ public final class LibraryContract {
         public static final String COL_TITLE= "Title";
         public static final String COL_AUTHOR= "Author";
         public static final String COL_YEAR_PUBLISHED = "YearPublished";
-        public static final String COL_BORROWER = "Borrower";
+        public static final String COL_STATUS = "Status";
         // not currently used- should be a boolean
         //public static final String COL_CHECKED_OUT = "CheckedOut";
 

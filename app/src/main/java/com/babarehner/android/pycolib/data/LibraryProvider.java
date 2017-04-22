@@ -114,7 +114,7 @@ public class LibraryProvider extends ContentProvider {
         //TODO in insertBook check data before entering in db
         String author = values.getAsString(LibraryContract.LibraryEntry.COL_AUTHOR);
         Integer pubYear = values.getAsInteger(LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED);
-        String borrower = values.getAsString(LibraryContract.LibraryEntry.COL_BORROWER);
+        String borrower = values.getAsString(LibraryContract.LibraryEntry.COL_STATUS);
 
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         // insert a book into the TBooks Table
