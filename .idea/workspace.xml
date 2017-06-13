@@ -2518,13 +2518,6 @@
       <option name="presentableId" value="Default" />
       <updated>1479518208479</updated>
     </task>
-    <task id="LOCAL-00006" summary="Add layout items to activity_edit&#10;Create menu file menu_edit&#10;Instantiate menu in EditActivity">
-      <created>1480526009333</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1480526009333</updated>
-    </task>
     <task id="LOCAL-00007" summary="Clean up User Interface in activity_edit.xml">
       <created>1480640740034</created>
       <option name="number" value="00007" />
@@ -2861,7 +2854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497364300302</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Set Books and Pythonistas to show in ascending order">
+      <created>1497364324782</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1497364324782</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView">
