@@ -19,6 +19,8 @@ import android.widget.ListView;
 
 import com.babarehner.android.pycolib.data.LibraryContract;
 
+import static com.babarehner.android.pycolib.data.LibraryContract.LibraryEntry.COL_TITLE;
+
 
 public class LibraryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -113,7 +115,7 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
         // Define a projections with the columns we are interested in
         // CursorAdapter requires column title of "_Id"
         String[] projection = {LibraryContract.LibraryEntry._ID,
-                LibraryContract.LibraryEntry.COL_TITLE,
+                COL_TITLE,
                 LibraryContract.LibraryEntry.COL_YEAR_PUBLISHED};
 
         // This loader will execute the ContentProvider's query  method on a background thread
@@ -122,7 +124,7 @@ public class LibraryActivity extends AppCompatActivity implements LoaderManager.
                 projection,
                 null,
                 null,
-                null);
+                COL_TITLE + " ASC");
     }
 
 

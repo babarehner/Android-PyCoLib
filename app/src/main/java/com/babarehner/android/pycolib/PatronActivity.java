@@ -91,12 +91,16 @@ public class PatronActivity extends AppCompatActivity implements
                 LibraryContract.LibraryEntry.COL_F_NAME,
                 LibraryContract.LibraryEntry.COL_L_NAME};
 
+        // this does not make sense. How can I use the variable COL_TITLE instead of the
+        // actual column name??
+        String sortOrder = "Title ASC";
+
         return new CursorLoader(this,
                 LibraryContract.LibraryEntry.PYTHONISTA_URI,
                 projection,
                 null,
                 null,
-                null);
+                LibraryContract.LibraryEntry.COL_L_NAME + " ASC");
     }
 
     @Override
