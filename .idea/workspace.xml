@@ -2518,13 +2518,6 @@
       <option name="presentableId" value="Default" />
       <updated>1479518208479</updated>
     </task>
-    <task id="LOCAL-00005" summary="Add activity_edit CategoryStyle to resources&#10;Change min Android to 16 in build.gradle to take advantage of fontFamily attribute">
-      <created>1480521705556</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1480521705556</updated>
-    </task>
     <task id="LOCAL-00006" summary="Add layout items to activity_edit&#10;Create menu file menu_edit&#10;Instantiate menu in EditActivity">
       <created>1480526009333</created>
       <option name="number" value="00006" />
@@ -2861,7 +2854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497364256656</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Set Books and Pythonistas to show in ascending order">
+      <created>1497364300301</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1497364300302</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
