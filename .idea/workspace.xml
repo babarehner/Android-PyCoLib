@@ -22,14 +22,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="Clean up e-mail message to Pythonista Borrowers">
+    <list default="true" id="d8b3dad0-d883-40f1-bf23-930205773d70" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/library.txt" afterPath="$PROJECT_DIR$/app/src/main/assets/library.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/LibraryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/babarehner/android/pycolib/PatronActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
     </list>
     <ignored path="PyCoLib.iws" />
@@ -2524,13 +2518,6 @@
       <option name="presentableId" value="Default" />
       <updated>1479518208479</updated>
     </task>
-    <task id="LOCAL-00004" summary="git modified files because of CLRF issues">
-      <created>1480519840934</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1480519840934</updated>
-    </task>
     <task id="LOCAL-00005" summary="Add activity_edit CategoryStyle to resources&#10;Change min Android to 16 in build.gradle to take advantage of fontFamily attribute">
       <created>1480521705556</created>
       <option name="number" value="00005" />
@@ -2867,7 +2854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492822247515</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Set Books and Pythonistas to show in ascending order">
+      <created>1497364256655</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1497364256656</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2965,7 +2959,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add MainActivity.java and activity_main.xml to project. These provide an entry page and allow users to navigate between books, borrowers and check in/checkout" />
     <MESSAGE value="Add PythonistaActivity and activity_pythonista.  Implement layout for activity_pythonista. Obtain icons from material.io/icons and implement standard icons. Remove all icons that may create copyright issues." />
     <MESSAGE value="Add PythonistaCursorAdapter which extends CursorAdapter. Add list_pythonista for a list view of the CursorAdapter." />
     <MESSAGE value="Update URIs for table TPythonistas in LibraryContract.java" />
@@ -2990,7 +2983,8 @@
     <MESSAGE value="General update to db and add pythonistas.txt to .gitignore" />
     <MESSAGE value="added admin and test menu items to Main Activity. Removed test menu items from Patron &amp; Library Activities. Added &quot;Add a Book/Pythonista&quot; menu items to Patron &amp; Library activities" />
     <MESSAGE value="Clean up e-mail message to Pythonista Borrowers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up e-mail message to Pythonista Borrowers" />
+    <MESSAGE value="Set Books and Pythonistas to show in ascending order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set Books and Pythonistas to show in ascending order" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
