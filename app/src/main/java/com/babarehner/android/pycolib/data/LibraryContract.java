@@ -31,25 +31,6 @@ public final class LibraryContract {
     public static final String PATH_TPYTHONISTAS = "Pythonistas";
     public static final String PATH_TLOANS ="TLoaned";
 
-    /*
-    // The MIME Type for a list of books
-    public static final String CONTENT_LIST_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE
-            + "/" + CONTENT_AUTHORITY + "/" + PATH_TBOOKS;
-    // MIME Type for a list of pythonistas
-    public static final String CONTENT_LIST_PYTHONISTA_TYPE = ContentResolver.
-            CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TPYTHONISTAS;
-    // The MIME Type for a single book
-    public static final String CONTENT_BOOK_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE
-            + "/" + CONTENT_AUTHORITY + "/" + PATH_TBOOKS;
-    // MIME type for a single pythonista
-    public static final String CONTENT_PYTHONISTA_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE
-            + "/" + CONTENT_AUTHORITY + "/" + PATH_TPYTHONISTAS;
-    // Content URI  to access the TBooks table in provider
-    public static final Uri CONTENT_BOOKS_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TBOOKS);
-    // Content URI to access TPythonistas table in provider
-    public static final Uri CONTENT_PYTHONISTAS_URI =
-            Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TPYTHONISTAS);
-    */
 
     /**
      * Inner class that defines constant values for the library database table.
@@ -88,7 +69,7 @@ public final class LibraryContract {
         //public static final String COL_CHECKED_OUT = "CheckedOut";
 
         public static final int LOWEST_YEAR = 1991;     // When Python was born
-        public static final int HIGHEST_YEAR = 2018;    // Current year + 1
+        public static final int HIGHEST_YEAR = 2019;    // Current year + 2
 
         public static final String TPYTHONISTAS = "TPythonistas";   //Table name for Pythonistas
         public static final String _IDP = BaseColumns._ID;  //Wonder if I can have two different

@@ -96,7 +96,8 @@ public class CheckInActivity extends AppCompatActivity {
         sb = sb.append(qc.getName()).append(",\n\nHope you are doing well. ")
                 .append("Just to let you know that other Pythonistas may want to use the book you borrowed- '")
                 .append(qc.getBookTitle()).append("' from the Python library on '").append(qc.getLoanDate())
-                .append("'. We still have the Python Dojo every Friday at Panera at 6:00 PM. ")
+                .append("'. The Python Dojo currently takes place every Thursday from 6:00 PM onwards. ")
+                .append("The dojo's currentt location is at Smokehouse Brewery, 1130 Dublin Rd, Columbus OH.")
                 .append(" If I'm not there when you return the book please give it to another Pythonista such as Travis or Jim.")
                 .append("\n\n Cheers, \n\n Mike");
         intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
