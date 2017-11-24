@@ -4,7 +4,7 @@
 
     <!-- Where should uses-permission go in manifest file??
     developer.android.com/training/permissions/declaring.html-->
-    <uses-permisssion
+    <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
